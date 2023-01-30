@@ -19,4 +19,4 @@ https://www.rubylearning.dev/
 https://www.w3schools.com/git/
 
 # Integrantes
-### AGREGUEN SUS NOMBRES AQUï Y ROLES AQUí
+### PLACEHOLDER
