@@ -97,10 +97,13 @@ GEM
       railties (>= 6.0.0)
     date (3.3.3)
     debug (1.7.1)
+<<<<<<< HEAD
     dockerfile-rails (1.0.10)
       rails
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> c0a565c (Create user model, config devise in order to work with Turbo)
     devise (4.8.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -257,6 +260,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails (~> 1.1)
   debug
+  devise
   dockerfile-rails (>= 1.0)
   importmap-rails
   jbuilder
