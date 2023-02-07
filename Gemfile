@@ -81,3 +81,8 @@ gem "dockerfile-rails", ">= 1.0", :group => :development
 gem 'jquery-rails'
 
 gem "devise"
+gem "cssbundling-rails", "~> 1.1"
+
+gem "jsbundling-rails", "~> 1.1"
+
+gem "dockerfile-rails", ">= 1.0", :group => :development

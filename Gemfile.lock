@@ -70,6 +70,10 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
+<<<<<<< HEAD
+=======
+    bcrypt (3.1.18)
+>>>>>>> ebdf9be (Fixed Dockerfile and docker-compose (development option), added boilerplate to test Bootstrap, added JS assets and configuration)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -89,10 +93,23 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.2.0)
     crass (1.0.6)
+    cssbundling-rails (1.1.2)
+      railties (>= 6.0.0)
     date (3.3.3)
     debug (1.7.1)
     dockerfile-rails (1.0.10)
       rails
+<<<<<<< HEAD
+=======
+    devise (4.8.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
+    dockerfile-rails (1.0.10)
+      rails
+>>>>>>> ebdf9be (Fixed Dockerfile and docker-compose (development option), added boilerplate to test Bootstrap, added JS assets and configuration)
     erubi (1.12.0)
     execjs (2.8.1)
     ffi (1.15.5)
@@ -238,11 +255,11 @@ DEPENDENCIES
   bootsnap
   bootstrap (~> 5.2.2)
   capybara
+  cssbundling-rails (~> 1.1)
   debug
   dockerfile-rails (>= 1.0)
   importmap-rails
   jbuilder
-  jquery-rails
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
