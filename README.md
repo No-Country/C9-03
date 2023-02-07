@@ -1,6 +1,17 @@
 # C9-03
 Cohorte 9, grupo 3 Ruby on Rails
 
+Información importante:
+
+Seguir este flujo respecto a las branches:
+![Untitled 1_page-0001](https://user-images.githubusercontent.com/78238453/217380159-b1913c2d-6c65-447c-88eb-1020d7663e90.jpg)
+
+La rama de Main es la base de los deploys, tiene configuraciones especiales y por lo tanto se debe hacer pull desde develop y evitar pushear a main.
+
+Los PRs con features deben hacerse a release, luego cada jueves debe pushearse lo que se haya logrado meter en el release a development y de allí se debe pushear a main para hacer el deploy. Luego, cuando comienza el nuevo sprint, debe hacerse un pull de development para traer la versión actualizada. 
+
+
+
 Para inicializar el proyecto, puedes hacerlo con Docker (recomendado) o localmente.
 
 Para hacerlo con Docker, importante tener docker compose instalado (sigue esta guía https://docs.docker.com/compose/install/). 
@@ -47,5 +58,15 @@ https://www.rubylearning.dev/
 
 https://www.w3schools.com/git/
 
+### Releases:
+
+## Semana 0:
+https://food-delivery-release0.fly.dev/
+## Semana 1:
+- TO BE RELEASED
+
 # Integrantes
-### PLACEHOLDER
+- Lautaro Graciani, FullStack / Front end
+- María Martin, UX-UI / Front end
+- Rocío Godoy, Backend
+- Rodrigo Ladron de Guevara, Backend
