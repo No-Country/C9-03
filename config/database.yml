@@ -8,9 +8,12 @@ default: &default
 
 development:
   <<: *default
-  database: myapp_development
+  database: development
 
 
 test:
   <<: *default
   database: myapp_test
+production:
+  <<: *default
+  database: myapp_production
