@@ -58,11 +58,11 @@ https://www.rubylearning.dev/
 
 https://www.w3schools.com/git/
 
-Releases:
+### Releases:
 
-Semana 0:
+## Semana 0:
 https://food-delivery-release0.fly.dev/
-Semana 1:
+## Semana 1:
 - TO BE RELEASED
 
 # Integrantes
