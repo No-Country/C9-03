@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+<%# los :delete deben ir en este formato para que devise funcione con turbo %>
+   <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, class: 'nav-link' %>
+<% else %>
+   <%= link_to "Sign in", new_user_session_path, class: 'nav-link' %>
+<% end %>
