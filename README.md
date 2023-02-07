@@ -58,5 +58,15 @@ https://www.rubylearning.dev/
 
 https://www.w3schools.com/git/
 
+Releases:
+
+Semana 0:
+https://food-delivery-release0.fly.dev/
+Semana 1:
+- TO BE RELEASED
+
 # Integrantes
-### PLACEHOLDER
+- Lautaro Graciani, FullStack / Front end
+- María Martin, UX-UI / Front end
+- Rocío Godoy, Backend
+- Rodrigo Ladron de Guevara, Backend
