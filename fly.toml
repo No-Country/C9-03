@@ -1,14 +1,9 @@
-# fly.toml file generated for c903 on 2023-02-02T17:53:52-03:00
+# fly.toml file generated for food-deliveries on 2023-02-07T17:35:02-03:00
 
-app = "c903"
+app = "food-deliveries"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
-
-[build]
-  [build.args]
-    BUILD_COMMAND = "bin/rails fly:build"
-    SERVER_COMMAND = "bin/rails fly:server"
 
 [deploy]
   release_command = "bin/rails fly:release"
