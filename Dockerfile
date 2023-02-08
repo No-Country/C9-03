@@ -7,7 +7,7 @@ RUN bundle install
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+RUN rm -f /myapp/tmp/pids/server.pid
 EXPOSE 3000
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
