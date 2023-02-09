@@ -110,6 +110,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    diff-lcs (1.5.0)
     dockerfile-rails (1.0.10)
       rails
 >>>>>>> ebdf9be (Fixed Dockerfile and docker-compose (development option), added boilerplate to test Bootstrap, added JS assets and configuration)
