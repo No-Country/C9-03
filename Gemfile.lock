@@ -262,6 +262,8 @@ DEPENDENCIES
   debug
   devise
   dockerfile-rails (>= 1.0)
+  factory_bot_rails
+  faker
   importmap-rails
   jbuilder
   pg (~> 1.1)

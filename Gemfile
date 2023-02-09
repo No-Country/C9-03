@@ -86,19 +86,11 @@ gem 'bootstrap', '~> 5.2.2'
 gem "dockerfile-rails", ">= 1.0", :group => :development
 gem 'jquery-rails'
 
-<<<<<<< HEAD
 
 gem "devise"
 
-=======
->>>>>>> 2a86e83 (Resuelvo conflictos merge)
 gem "cssbundling-rails", "~> 1.1"
 
 gem "jsbundling-rails", "~> 1.1"
 
 gem "dockerfile-rails", ">= 1.0", :group => :development
-<<<<<<< HEAD
-
-=======
-gem "devise"
->>>>>>> 2a86e83 (Resuelvo conflictos merge)
