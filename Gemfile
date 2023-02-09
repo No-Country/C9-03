@@ -70,9 +70,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
-gem "cssbundling-rails", "~> 1.1"
-
-gem "jsbundling-rails", "~> 1.1"
-
+gem 'bootstrap', '~> 5.2.2'
 gem "dockerfile-rails", ">= 1.0", :group => :development
+gem 'jquery-rails'
