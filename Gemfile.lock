@@ -68,8 +68,14 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
+<<<<<<< Updated upstream
     autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
+=======
+    annotate (3.2.0)
+      activerecord (>= 3.2, < 8.0)
+      rake (>= 10.4, < 14.0)
+>>>>>>> Stashed changes
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -93,6 +99,8 @@ GEM
     debug (1.7.1)
     dockerfile-rails (1.0.10)
       rails
+      irb (>= 1.5.0)
+      reline (>= 0.3.1)
     erubi (1.12.0)
     execjs (2.8.1)
     ffi (1.15.5)
@@ -103,6 +111,9 @@ GEM
     importmap-rails (1.1.5)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
+    io-console (0.6.0)
+    irb (1.6.2)
+      reline (>= 0.3.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -113,7 +124,7 @@ GEM
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    mail (2.8.0.1)
+    mail (2.8.1)
       mini_mime (>= 0.1.1)
       net-imap
       net-pop
@@ -173,6 +184,8 @@ GEM
       zeitwerk (~> 2.5)
     rake (13.0.6)
     regexp_parser (2.6.2)
+    reline (0.3.2)
+      io-console (~> 0.5)
     rexml (3.2.5)
     rubyzip (2.3.2)
     sassc (2.4.0)
@@ -226,6 +239,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  annotate (~> 3.2)
   bootsnap
   bootstrap (~> 5.2.2)
   capybara
