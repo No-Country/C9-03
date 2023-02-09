@@ -1,6 +1,6 @@
-# fly.toml file generated for food-delivery-release0 on 2023-02-07T19:18:00-03:00
+# fly.toml file generated for yendo-release1 on 2023-02-09T17:44:46-03:00
 
-app = "food-delivery-release0"
+app = "yendo-release1"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
