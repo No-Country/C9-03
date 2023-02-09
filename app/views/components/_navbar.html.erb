@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <%= image_tag "logo.png", :id => "imglogo" %>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#" id="login-button">Iniciá sesión</a>
+        </li>
+      </ul>
+      <form class="form-inline" role="search">
+        <div class="input-group">
+          <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
+          <input type="text" class="form-control" placeholder="Buscá un local o comida" aria-label="search" aria-describedby="basic-addon1" style="width:300px">
+        </div>
+      </form>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="bi bi-geo-alt"></i> Tu ubicación</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="cart"><i class="bi bi-cart"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

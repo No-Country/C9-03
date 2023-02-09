@@ -4,3 +4,4 @@
 //= link_tree .
 
 //= link navbar.css
+//= link landing.css
