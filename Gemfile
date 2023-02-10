@@ -73,3 +73,4 @@ end
 gem 'bootstrap', '~> 5.2.2'
 gem "dockerfile-rails", ">= 1.0", :group => :development
 gem 'jquery-rails'
+gem 'annotate', '~> 3.2'
