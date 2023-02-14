@@ -75,3 +75,5 @@ gem "dockerfile-rails", ">= 1.0", :group => :development
 gem 'jquery-rails'
 
 gem "redis", "~> 5.0"
+gem 'annotate' , '~> 3.2.0'
+gem 'geocoder'
