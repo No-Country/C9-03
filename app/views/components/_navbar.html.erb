@@ -9,7 +9,11 @@
     <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" id="login-button">Iniciá sesión</a>
+          <% if current_user %>
+            <%= link_to "Cerrar sesion", sign_out_path, class:"nav-link active" %>
+          <% else %>
+            <%= link_to "Iniciar sesion", new_session_path(User), class:"nav-link active" %>
+          <% end %>
         </li>
       </ul>
       <form class="form-inline" role="search">
