@@ -5,3 +5,4 @@
 
 //= link navbar.css
 //= link landing.css
+//= link application.css
