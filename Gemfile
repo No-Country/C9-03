@@ -74,6 +74,8 @@ gem 'bootstrap', '~> 5.2.2'
 gem "dockerfile-rails", ">= 1.0", :group => :development
 gem 'jquery-rails'
 gem 'annotate', '~> 3.2'
+gem 'geocoder', '~> 1.8', '>= 1.8.1'
+
 gem "devise", "~> 4.8"
 gem "devise-i18n"
 gem "devise-bootstrap5"
