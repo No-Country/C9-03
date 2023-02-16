@@ -81,6 +81,7 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.6, < 3)
       sassc-rails (>= 2.0.0)
+    browser (5.3.1)
     builder (3.2.4)
     capybara (3.38.0)
       addressable
@@ -92,7 +93,6 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     concurrent-ruby (1.2.0)
-    connection_pool (2.3.0)
     crass (1.0.6)
     date (3.3.3)
     debug (1.7.1)
@@ -193,16 +193,12 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    regexp_parser (2.6.2)
     reline (0.3.2)
       io-console (~> 0.5)
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    redis (5.0.6)
-      redis-client (>= 0.9.0)
-    redis-client (0.12.1)
-      connection_pool
-    regexp_parser (2.6.2)
     rexml (3.2.5)
     rubyzip (2.3.2)
     sassc (2.4.0)
@@ -262,6 +258,7 @@ DEPENDENCIES
   annotate (~> 3.2)
   bootsnap
   bootstrap (~> 5.2.2)
+  browser
   capybara
   debug
   devise (~> 4.8)
@@ -275,7 +272,6 @@ DEPENDENCIES
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
-  redis (~> 5.0)
   selenium-webdriver
   sprockets-rails
   stimulus-rails
