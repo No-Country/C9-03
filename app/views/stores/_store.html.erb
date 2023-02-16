@@ -1,0 +1,11 @@
+<div class="container">
+    <% @stores.each do |store| %>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <%= image_tag store.url, class: "img-fluid", id: "header-item-2" %>
+            <h5 class="card-title"><%= store.name%></h5>
+            <%= link_to 'Ver Local', store_path(store), class: "btn btn-outline-success"%>
+        </div>
+    </div>
+    <% end %>  
+</div>

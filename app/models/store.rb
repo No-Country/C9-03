@@ -3,7 +3,9 @@
 # Table name: stores
 #
 #  id          :bigint           not null, primary key
+#  description :string
 #  name        :string           not null
+#  url         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  category_id :bigint
@@ -20,4 +22,5 @@ class Store < ApplicationRecord
     belongs_to :category
     has_one :address , dependent: :destroy
     has_many :foods, dependent: :destroy
+    has_one_attached :image
 end
