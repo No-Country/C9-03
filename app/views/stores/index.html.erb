@@ -1,8 +1,35 @@
     <div class="bd-highlight d-flex flex-row flex-wrap" id="landing-rectangle-body">
-      <i class="bi bi-sliders p-2 fw-bold"></i>
-      <div class="bd-highlight p-1"><button type="button" class="btn btn-outline-secondary btn-sm" id="filter-button">Puntuación</button></div>
-      <div class=" bd-highlight p-1"><button type="button" class="btn btn-outline-secondary btn-sm" id="filter-button">Ubicación</button></div>
-      <div class=" bd-highlight p-1"><button type="button" class="btn btn-outline-secondary btn-sm" id="filter-button">Comida</button></div>
-      <div class="bd-highlight p-1"><button type="button" class="btn btn-outline-secondary btn-sm" id="filter-button">Categorías</button></div>
+      <i class="bi bi-sliders p-2 "></i>
+
+      <div class="dropdown-center p-1">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Puntuación
+          </button>
+          <ul class="dropdown-menu ">
+            <li><a class="dropdown-item" href="#">Mas de 2 estrellas</a></li>
+            <li><a class="dropdown-item" href="#">Mas de 3 estrellas</a></li>
+            <li><a class="dropdown-item" href="#">Mas de 4 estrellas</a></li>
+          </ul>
+     </div>        
+     <div class="dropdown-center p-1">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Comidas
+          </button>
+          <ul class="dropdown-menu ">
+            <li><a class="dropdown-item" href="#">Pizzas</a></li>
+            <li><a class="dropdown-item" href="#">Helados</a></li>
+            <li><a class="dropdown-item" href="#">Hamburguesas</a></li>
+          </ul>
+     </div>
+            <div class="dropdown-center p-1">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Categorías
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Veggie</a></li>
+          <li><a class="dropdown-item" href="#">Desayunos</a></li>
+          <li><a class="dropdown-item" href="#">Comida rápida</a></li>
+        </ul>
+      </div>
     </div>
     <%= render 'store' %>
