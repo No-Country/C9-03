@@ -13,8 +13,9 @@ options:
   platform: 
   postgresql: true
   prepare: true
-  redis: false
+  redis: true
   swap: 
   yjit: false
-  label: {}
+  label:
+    fly_launch_runtime: rails
   nginx: false

@@ -81,6 +81,7 @@ GEM
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.6, < 3)
       sassc-rails (>= 2.0.0)
+    browser (5.3.1)
     builder (3.2.4)
     capybara (3.38.0)
       addressable
@@ -195,7 +196,7 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
-    regexp_parser (2.7.0)
+    regexp_parser (2.6.2)
     reline (0.3.2)
       io-console (~> 0.5)
     responders (3.1.0)
@@ -260,6 +261,7 @@ DEPENDENCIES
   annotate (~> 3.2)
   bootsnap
   bootstrap (~> 5.2.2)
+  browser
   capybara
   debug
   devise (~> 4.8)
