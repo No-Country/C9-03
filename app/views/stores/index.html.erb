@@ -1,10 +1,8 @@
-<p>Lista de locales
-  <p>
-    <div class="d-flex flex-row bd-highlight mb-3" id="landing-rectangle-body" style="margin-left:30px;margin-top:30px">
-      <div class="p-2 bd-highlight align-items-stretch" style="font-size:1.7em"><i class="bi bi-sliders"></i> Filtrar por: </div>
-      <div class="p-2 bd-highlight"><button type="button" class="btn btn-dark" id="filter-button"> Puntuación   X</button></div>
-      <div class="p-2 bd-highlight"><button type="button" class="btn btn-secondary" id="filter-button"> Ubicación</button></div>
-      <div class="p-2 bd-highlight"><button type="button" class="btn btn-secondary" id="filter-button"> Comida</button></div>
-      <div class="p-2 bd-highlight"><button type="button" class="btn btn-secondary" id="filter-button"> Categorías</button></div>
+    <div class="bd-highlight d-flex flex-row flex-wrap" id="landing-rectangle-body">
+      <i class="bi bi-sliders p-2 fw-bold"></i>
+      <div class="bd-highlight p-1"><button type="button" class="btn btn-outline-secondary btn-sm" id="filter-button">Puntuación</button></div>
+      <div class=" bd-highlight p-1"><button type="button" class="btn btn-outline-secondary btn-sm" id="filter-button">Ubicación</button></div>
+      <div class=" bd-highlight p-1"><button type="button" class="btn btn-outline-secondary btn-sm" id="filter-button">Comida</button></div>
+      <div class="bd-highlight p-1"><button type="button" class="btn btn-outline-secondary btn-sm" id="filter-button">Categorías</button></div>
     </div>
     <%= render 'store' %>
