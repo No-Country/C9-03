@@ -1,7 +1,6 @@
-    <div class="bd-highlight d-flex flex-row flex-wrap" id="landing-rectangle-body">
-      <i class="bi bi-sliders p-2 "></i>
-
-      <div class="dropdown-center p-1">
+<div class="bd-highlight d-flex flex-row flex-wrap" id="landing-rectangle-body">
+<i class="bi bi-sliders p-2 "></i>
+        <div class="dropdown-center p-1">
           <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Puntuación
           </button>
@@ -10,7 +9,7 @@
             <li><a class="dropdown-item" href="#">Mas de 3 estrellas</a></li>
             <li><a class="dropdown-item" href="#">Mas de 4 estrellas</a></li>
           </ul>
-     </div>        
+     </div>
      <div class="dropdown-center p-1">
           <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             Comidas
@@ -26,9 +25,9 @@
           Categorías
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Veggie</a></li>
-          <li><a class="dropdown-item" href="#">Desayunos</a></li>
-          <li><a class="dropdown-item" href="#">Comida rápida</a></li>
+        <% @categories.each do |category| %>
+          <li><%= link_to category.name , "stores?category_id=#{category.id}", class: "dropdown-item"%></a></li>
+        <%end%>
         </ul>
       </div>
     </div>
