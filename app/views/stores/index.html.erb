@@ -1,10 +1,34 @@
-<p>Lista de locales
-  <p>
-    <div class="d-flex flex-row bd-highlight mb-3" id="landing-rectangle-body" style="margin-left:30px;margin-top:30px">
-      <div class="p-2 bd-highlight align-items-stretch" style="font-size:1.7em"><i class="bi bi-sliders"></i> Filtrar por: </div>
-      <div class="p-2 bd-highlight"><button type="button" class="btn btn-dark" id="filter-button"> Puntuación   X</button></div>
-      <div class="p-2 bd-highlight"><button type="button" class="btn btn-secondary" id="filter-button"> Ubicación</button></div>
-      <div class="p-2 bd-highlight"><button type="button" class="btn btn-secondary" id="filter-button"> Comida</button></div>
-      <div class="p-2 bd-highlight"><button type="button" class="btn btn-secondary" id="filter-button"> Categorías</button></div>
+<div class="bd-highlight d-flex flex-row flex-wrap" id="landing-rectangle-body">
+<i class="bi bi-sliders p-2 "></i>
+        <div class="dropdown-center p-1">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Puntuación
+          </button>
+          <ul class="dropdown-menu ">
+            <li><a class="dropdown-item" href="#">Mas de 2 estrellas</a></li>
+            <li><a class="dropdown-item" href="#">Mas de 3 estrellas</a></li>
+            <li><a class="dropdown-item" href="#">Mas de 4 estrellas</a></li>
+          </ul>
+     </div>
+     <div class="dropdown-center p-1">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Comidas
+          </button>
+          <ul class="dropdown-menu ">
+            <li><a class="dropdown-item" href="#">Pizzas</a></li>
+            <li><a class="dropdown-item" href="#">Helados</a></li>
+            <li><a class="dropdown-item" href="#">Hamburguesas</a></li>
+          </ul>
+     </div>
+            <div class="dropdown-center p-1">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Categorías
+        </button>
+        <ul class="dropdown-menu">
+        <% @categories.each do |category| %>
+          <li><%= link_to category.name , "stores?category_id=#{category.id}", class: "dropdown-item"%></a></li>
+        <%end%>
+        </ul>
+      </div>
     </div>
     <%= render 'store' %>

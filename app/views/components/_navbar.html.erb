@@ -12,18 +12,19 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <% if current_user %>
-            <%= link_to "Cerrar sesion", sign_out_path, class:"nav-link active" %>
+            <%= link_to "Cerrar sesión", sign_out_path, class:"nav-link active" %>
           <% else %>
-            <%= link_to "Iniciar sesion", new_session_path(User), class:"nav-link active" %>
+            <%= link_to "Iniciar sesión", new_session_path(User), class:"nav-link active" %>
           <% end %>
         </li>
       </ul>
-      <form class="form-inline" role="search">
+      <%= form_tag(stores_path, method: :get, class: 'form-inline' ) do %>
         <div class="input-group">
           <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-          <input type="text" class="form-control" placeholder="Buscá un local o comida" aria-label="search" aria-describedby="basic-addon1" style="width:300px">
+          <%= text_field_tag(:search, params[:search], class: 'form-control', placeholder: "Buscá local o comida") %>
+          <%= submit_tag ("Search") , class: 'btn btn-outline-success' %>
         </div>
-      </form>
+      <% end %>
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="#"><i class="bi bi-geo-alt"></i><%= get_location %></a>
