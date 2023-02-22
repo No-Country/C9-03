@@ -16,4 +16,6 @@ test:
   database: myapp_test
 production:
   <<: *default
-  database: myapp_production
+  database: yendo_production
+  username: deploy
+  password: Rails.application.credentials.dig(:production, :db_password)
