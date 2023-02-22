@@ -55,6 +55,7 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'annotate', '~> 3.2'
   gem "web-console"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
@@ -78,7 +79,6 @@ end
 gem 'bootstrap', '~> 5.2.2'
 gem "dockerfile-rails", ">= 1.0", :group => :development
 gem 'jquery-rails'
-gem 'annotate', '~> 3.2'
 gem 'geocoder', '~> 1.8', '>= 1.8.1'
 
 gem "devise", "~> 4.8"
