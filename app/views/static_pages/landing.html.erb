@@ -1,15 +1,37 @@
 <div class="d-flex p-2 align-items-stretch" id="landing-rectangle-header">
-  <div class="align-self-center" id="header-item-1">
+  <div class="align-self-center flex-grow-1 d-flex flex-column align-items-center" id="header-item-1">
     <h1 >Hacé tu pedido con un <br/>
       click!</h1>
-    <button type="button" class="btn btn-light" id="order-button"> Pedí ahora! </button>
+    <button type="button" class="btn btn-light" id="order-button">
+      <% if current_user %>
+        <%= link_to "Pedí ahora", stores_path, class:"nav-link active" %>
+      <% else %>
+        <%= link_to "Pedí ahora", new_session_path(User), class:"nav-link active" %>
+      <% end %></button>
   </div>
-  <%= image_tag "pizza.jpg", class: "img-fluid", id: "header-item-2" %>
+  <% unless browser.device.mobile? %>
+    <%= image_tag "pizza.jpg", id: "header-item-2" %>
+  <% end %>
 </div>
-<div class="d-flex flex-row bd-highlight mb-3" id="landing-rectangle-body" style="margin-left:30px;margin-top:30px">
-  <div class="p-2 bd-highlight align-items-stretch" style="font-size:1.7em"><i class="bi bi-sliders"></i> Filtrar por: </div>
-  <div class="p-2 bd-highlight"><button type="button" class="btn btn-dark" id="filter-button"> Puntuación   X</button></div>
-  <div class="p-2 bd-highlight"><button type="button" class="btn btn-secondary" id="filter-button"> Ubicación</button></div>
-  <div class="p-2 bd-highlight"><button type="button" class="btn btn-secondary" id="filter-button"> Comida</button></div>
-  <div class="p-2 bd-highlight"><button type="button" class="btn btn-secondary" id="filter-button"> Categorías</button></div>
+<br>
+<div class="d-flex justify-content-center">
+  <% @stores = Store.all.sample(3).each do |store| %>
+    <div class="card mb-3" style=";">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <% if store.url %>
+            <%= image_tag store.url, class: "img-fluid", id: "header-item-2" %>
+          <% end %>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"><%= store.name%></h5>
+            <h5 class="card-title"></h5>
+            <p class="card-text"><%= store.foods.sample(3).map(&:name).join(", ") %></p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
