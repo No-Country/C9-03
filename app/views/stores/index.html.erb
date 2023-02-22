@@ -2,12 +2,15 @@
 <i class="bi bi-sliders p-2 "></i>
         <div class="dropdown-center p-1">
           <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Puntuación
+            Ordernar por
           </button>
           <ul class="dropdown-menu ">
-            <li><a class="dropdown-item" href="#">Mas de 2 estrellas</a></li>
-            <li><a class="dropdown-item" href="#">Mas de 3 estrellas</a></li>
-            <li><a class="dropdown-item" href="#">Mas de 4 estrellas</a></li>
+            <li><% if params[:search].present? || params[:category_id].present? %>
+                <%= link_to "Puntuación" , request.original_url + "&ratings=true", class: "dropdown-item"%>
+                <%else %>
+                <%= link_to "Puntuación" , request.original_url + "?ratings=true", class: "dropdown-item" %>
+                <%end%></li> 
+            <li><%= link_to "Mas de 4 estrellas" , "stores?ratings=4", class: "dropdown-item" %></a></li>
           </ul>
      </div>
      <div class="dropdown-center p-1">
@@ -26,7 +29,11 @@
         </button>
         <ul class="dropdown-menu">
         <% @categories.each do |category| %>
-          <li><%= link_to category.name , "stores?category_id=#{category.id}", class: "dropdown-item"%></a></li>
+          <li><% if params[:search].present? || params[:ratings].present? %>
+              <li><%= link_to category.name ,request.original_url + "&category_id=#{category.id}" , class: "dropdown-item"%></a>
+          <%else%>
+              <li><%= link_to category.name , "stores?category_id=#{category.id}" , class: "dropdown-item"%></a>
+          <%end%></li>
         <%end%>
         </ul>
       </div>
