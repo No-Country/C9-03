@@ -6,5 +6,5 @@ Rails.application.routes.draw do
     get "/users/sign_out", as: "sign_out", to: "devise/sessions#destroy"
   end
   resources :stores, only: %i[index show]
-  resources :locations, only: :index
+  resources :locations, only: %i[index create]
 end

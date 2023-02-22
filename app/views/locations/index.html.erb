@@ -1,28 +1,21 @@
 <div class="align-self-center flex-grow-1 d-flex flex-column align-items-center">
-    <div>
-        <%= js_map [{latitude: 37.7829,
-                longitude: -122.4190,
-                label: 'My home',
-                tooltip: 'Hello!'
-                }],
-                id: "cities-map",
-                width: "500px",
-                height: "400px",
-                markers: {color: "#00FF00"},
-                tooltips: { hover: false, html: true},
-                style: "mapbox://styles/mapbox/outdoors-v12",
-                zoom: 15,
-                controls: true,
-                refresh: 60 %>
-    </div>            
+    <%= render 'map' %>
+    <br/>            
     <div class="align-self-center flex-grow-1 flex-row align-items-center">
-        <div>
-            <input type="text" class="form-control" id="direccion" aria-describedby="Direccion" placeholder="Direccion">
-        </div>
-        <div>
-            <button type="button" class="btn btn-light" id="address">
-                <%= link_to "Confirmar Direccion", "locations#index", class:"nav-link active" %>
-            </button>
-        </div>
+        <%= form_with url: locations_path, method: :get do |form| %>
+            <div>
+                <p> Escriba nombre completo de la calle</p>
+            </div>
+            <%= form.text_field :place , value: params[:place], class:'form-control', placeholder:'ej Av. Cabildo 4500'%>
+            <br/>
+            <%= form.submit 'Buscar', class: 'btn btn-light' %>  
+        <% end %>
+
+        <%= form_with url: locations_path, method: :post do |form| %>
+            <%= form.hidden_field :place_guardar , value: params[:place]%>
+            <%= form.hidden_field :place_latitude , value: @latitude%>
+            <%= form.hidden_field :place_longitude, value: @longitude%>    
+            <%= form.button 'Guardar', name: "saveplace",  class: 'btn btn-light' %>  
+        <% end %>
     </div>
 </div>
