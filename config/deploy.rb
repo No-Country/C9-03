@@ -8,7 +8,7 @@ set :application, 'yendo'
 set :repo_url, 'git@github.com:No-Country/C9-03.git'
 #FIXME add location on the server here
 set :deploy_to, '/home/deploy/yendo'
-set :branch, ENV['BRANCH'] if ENV['BRANCH']
+set :branch, 'main'
 
 set :linked_files, %w{config/database.yml config/master.key}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
