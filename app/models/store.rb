@@ -20,7 +20,9 @@
 #
 class Store < ApplicationRecord
     belongs_to :category
-    has_one :address , dependent: :destroy
+    has_one :location , dependent: :destroy
     has_many :foods, dependent: :destroy
     has_one_attached :image
+
 end
+  
