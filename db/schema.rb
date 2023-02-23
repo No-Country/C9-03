@@ -72,6 +72,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_185233) do
     t.datetime "updated_at", null: false
     t.string "url"
     t.string "description"
+    t.float "ratings", default: [], array: true
+    t.float "average"
     t.index ["category_id"], name: "index_stores_on_category_id"
   end
 

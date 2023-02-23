@@ -3,8 +3,10 @@
 # Table name: stores
 #
 #  id          :bigint           not null, primary key
+#  average     :float
 #  description :string
 #  name        :string           not null
+#  ratings     :float            default([]), is an Array
 #  url         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
