@@ -13,7 +13,6 @@ class ShoppingCartsController < ApplicationController
         ShoppingCart.create!(user: current_user)
       end
       @shopping_cart.add_food(food, quantity)
-      redirect_to shopping_cart_path
     end
   
     def checkout

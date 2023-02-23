@@ -6,7 +6,7 @@ class ShoppingCart < ApplicationRecord
   def add_food(food, quantity = 1)
     current_item = line_items.find_by(food_id: food.id)
     if current_item
-      current_item.quantity += quantity
+      current_item.quantity += quantity.to_i
       current_item.save
     else
       line_items.create(food_id: food.id, quantity: quantity, price: food.price)
