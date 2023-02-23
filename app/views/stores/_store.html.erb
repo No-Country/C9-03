@@ -1,16 +1,15 @@
-<section>
-    <h4 class="fw-semibold p-4 mt-4">Restaurantes</h4>
-    <div class="container-fluid d-flex justify-content-around flex-wrap">
-        <% @stores.each do |store| %>
-        <div class="card m-3 " style="width: 18rem">
-            <div class="card-body d-flex justify-content-end flex-column">
-                <%= image_tag store.url, class: "img-fluid", id: "header-item-2" %>
-                <div class=""> 
-                    <h3 class="card-title fw-bold"><%= store.name%></h3>
-                    <p class="fw-bold">4.3 <i class="bi bi-star-fill" style="color: orange;"></i></p>               
-                    <%= link_to 'Ver local', store_path(store), class: "btn btn-success container-fluid"%>
-                </div>
-            </div>
+<div class="container">
+    <% @stores.each do |store| %>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <%= image_tag store.url, class: "img-fluid", id: "header-item-2" %>
+            <h5 class="card-title"><%= store.name%></h5>
+            <h5 class="card-title">
+                <%= store.average.round(1) %>
+                <i class="bi bi-star-fill"></i>
+            </h5>
+            <%= link_to 'Ver Local', store_path(store), class: "btn btn-outline-success"%>
+        </div>
     </div>
         <% end %>  
     </div>  
