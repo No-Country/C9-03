@@ -55,6 +55,7 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'annotate', '~> 3.2'
   gem "web-console"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
@@ -62,6 +63,11 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'capistrano', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rbenv'
+  gem 'capistrano-db-tasks', require: false
+
 end
 
 group :test do
@@ -73,7 +79,6 @@ end
 gem 'bootstrap', '~> 5.2.2'
 gem "dockerfile-rails", ">= 1.0", :group => :development
 gem 'jquery-rails'
-gem 'annotate', '~> 3.2'
 gem 'geocoder', '~> 1.8', '>= 1.8.1'
 
 gem "devise", "~> 4.8"
@@ -82,3 +87,6 @@ gem "devise-bootstrap5"
 gem "mapkick-rb" 
 gem "browser"
 gem 'popper_js', '~> 2.11', '>= 2.11.6'
+gem "redis", "~> 5.0"
+gem 'ed25519', '~> 1.2'
+gem 'bcrypt_pbkdf', '~> 1.0'
