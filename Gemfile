@@ -79,5 +79,6 @@ gem 'geocoder', '~> 1.8', '>= 1.8.1'
 gem "devise", "~> 4.8"
 gem "devise-i18n"
 gem "devise-bootstrap5"
+gem "mapkick-rb" 
 gem "browser"
 gem 'popper_js', '~> 2.11', '>= 2.11.6'

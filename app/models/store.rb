@@ -22,7 +22,7 @@
 #
 class Store < ApplicationRecord
     belongs_to :category
-    has_one :address , dependent: :destroy
+    has_one :location , dependent: :destroy
     has_many :foods, dependent: :destroy
     has_one_attached :image
     before_save :update_average
@@ -32,5 +32,5 @@ class Store < ApplicationRecord
         self.ratings.each { |x| avg += x }
         self.average = avg/self.ratings.length
     end
-
 end
+  

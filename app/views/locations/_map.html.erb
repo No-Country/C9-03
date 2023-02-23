@@ -1,0 +1,16 @@
+    <div>
+        <%= js_map [{
+                latitude: @latitude,
+                longitude: @longitude,
+                label: 'Mi direccion'
+                }],
+                id: "cities-map",
+                width: "500px",
+                height: "400px",
+                markers: {color: "#00FF00"},
+                tooltips: { hover: false, html: true},
+                style: "mapbox://styles/mapbox/outdoors-v12",
+                zoom: 15,
+                controls: true,
+                refresh: 60 %>
+    </div>

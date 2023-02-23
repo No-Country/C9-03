@@ -2,6 +2,7 @@ class StoresController < ApplicationController
     before_action :set_store, only: %i[show avg]
 
     def index
+
         @categories = Category.all
         if params[:search].present?
             @stores = Store.includes(:foods).where("stores.name ILIKE :search OR foods.name ILIKE :search", search: "%#{params[:search]}%").references(:foods)
@@ -29,7 +30,7 @@ class StoresController < ApplicationController
             end
         # elsif params[:near].present?
         #     if params[:near] == "true"
-        #         distance_order(Address.second)
+        #         distance_order(Location.second)
         #     end
         else
             @stores = Store.all
@@ -38,19 +39,18 @@ class StoresController < ApplicationController
             end
         end
     end
-
     
-    def show
-        render json: @store, :include => [:address, :foods], status: :ok
+    def show 
+
     end
 
-    def distance_order(address_object) # Al pasar un pbjeto de Address nos devuelve los locales dentro del radio especificado
-        @addresses = address_object.nearbys(5)
+    def distance_order(location_object) # Al pasar un objeto de Location nos devuelve los locales dentro del radio especificado
+        @locations = location_object.nearbys(5)
         @stores = []
-        @addresses.each do |obj|
+        @locations.each do |obj|
             @stores << Store.where(id: obj.store_id)#, only: [:name, :category_id], include: {address: {only: :street}}
         end
-        render json: @stores, only: [:name, :category_id] ,  include: {address: {only: :street}}
+        render json: @stores, only: [:name, :category_id] ,  include: {location: {only: :street}}
     end
 
     def avg
