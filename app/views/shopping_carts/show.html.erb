@@ -1,0 +1,33 @@
+<h1>Carrito</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Comida</th>
+      <th>Precio</th>
+      <th>Cantidad</th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @shopping_cart.line_items.each do |item| %>
+      <tr>
+        <td><%= item.food.name %></td>
+        <td><%= number_to_currency(item.food.price) %></td>
+        <td><%= item.quantity %></td>
+        <td><%= number_to_currency(item.food.price * item.quantity) %></td>
+        <td><%= form_with(url: remove_food_from_shopping_cart_path(item.food.id), method: :post) do |form| %>
+            <%= form.number_field :quantity, value: 1, min: 1 %>
+            <%= form.submit "Remove from cart" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">Total</td>
+      <td><%= number_to_currency(@shopping_cart.total_price) %></td>
+    </tr>
+  </tfoot>
+</table>
+<%= link_to "Checkout", checkout_shopping_cart_path, method: :post %>

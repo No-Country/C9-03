@@ -3,8 +3,10 @@
 # Table name: stores
 #
 #  id          :bigint           not null, primary key
+#  average     :float
 #  description :string
 #  name        :string           not null
+#  ratings     :float            default([]), is an Array
 #  url         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -20,7 +22,15 @@
 #
 class Store < ApplicationRecord
     belongs_to :category
-    has_one :address , dependent: :destroy
+    has_one :location , dependent: :destroy
     has_many :foods, dependent: :destroy
     has_one_attached :image
+    before_save :update_average
+    scope :filter_by_ratings, ->(ratings) { where('average >= ?', ratings )}
+    def update_average
+        avg = 0
+        self.ratings.each { |x| avg += x }
+        self.average = avg/self.ratings.length
+    end
 end
+  

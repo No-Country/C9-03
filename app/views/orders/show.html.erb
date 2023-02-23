@@ -1,0 +1,29 @@
+<h1>Confirmación de orden</h1>
+<p>Tu orden ha sido confirmada.</p>
+<h2>Resumen de orden</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Comida</th>
+      <th>Precio</th>
+      <th>Cantidad</th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @order.order_items.each do |item| %>
+      <tr>
+        <td><%= item.food.name %></td>
+        <td><%= number_to_currency(item.food.price) %></td>
+        <td><%= item.quantity %></td>
+        <td><%= number_to_currency(item.food.price * item.quantity) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">Total</td>
+      <td><%= number_to_currency(@order.total_price) %></td>
+    </tr>
+  </tfoot>
+</table>

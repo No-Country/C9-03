@@ -1,0 +1,68 @@
+<section>
+  <div class="container-fluid bg-dark bg-gradient p-4  " id="local-header" style="height: 14rem;">
+    <h2 class="fw-bold" style="color:whitesmoke;"><%=@store.name%></h2>
+    <p class="fw-semibold" style="color:whitesmoke;">4.8</p>
+    <p style="color:whitesmoke;">Envío $180</p>
+  </div>
+  <h3 class="p-4">Más pedidos</h3>
+  <div class="d-flex justify-content-start align-content-center flex-column flex-md-row m-4">
+    <%# -------agregar nombres de comida, puntuacion, precio e imagen%>
+    <% @store.foods.each do |food| %>
+      <div class="card p-2 m-2 " style="max-width: 200px;">
+        <div style="max-width:200px">
+          <img src="/assets/foods/burguer.jpg" alt="burguer" class="w-100 h-50">
+        </div>
+        <div class="card-body">
+          <h4><%=food.name%></h4>
+          <p>Descripción</p>
+          <p class="fw-bold"><%= food.price %></p>
+          <%= form_with(url: add_food_to_shopping_cart_path(food.id), method: :post) do |form| %>
+            <%= form.number_field :quantity, value: 1, min: 1, max: 10, class: "form-control mb-3" %>
+            <%= form.submit "Add to cart", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <h3 class="p-4">Combos del día</h3>
+  <div class="d-flex align-items-center justify-content-start flex-column flex-md-row m-4">
+    <%# --------- CARDS PROVISORIAS%>
+    <div class="card p-2 m-2 " style="max-width: 200px;">
+      <div style="max-width:200px"><img src="/assets/foods/burguer.jpg" alt="burguer" class="img-fluid"></div>
+      <div class="card-body">
+        <h4>titulo comida</h4>
+        <p>Descripción</p>
+        <p class="fw-bold">$500</p>
+        <button class="btn btn-success btn-sm d-flex align-content-center justify-content-evenly" style="height: 30px;width:100px">
+          <i class="bi bi-cart-plus"></i>
+          <p class="">Agregar</p>
+        </button>
+      </div>
+    </div>
+    <div class="card p-2 m-2" style="max-width: 200px;">
+      <div style="max-width:200px"><img src="/assets/foods/burguer.jpg" alt="burguer" class="img-fluid"></div>
+      <div class="card-body ">
+        <h4 class="">Completa</h4>
+        <p>descripcion</p>
+        <p class="fw-bold">$500</p>
+        <button class="btn btn-success btn-sm d-flex align-content-center justify-content-evenly" style="height: 30px;width:100px">
+          <i class="bi bi-cart-plus"></i>
+          <p class="">Agregar</p>
+        </button>
+      </div>
+    </div>
+    <div class="card p-2 m-2" style="max-width: 200px;">
+      <div style="max-width:200px">
+        <img src="/assets/foods/burguer.jpg" alt="burguer" class="img-fluid"></div>
+      <div class=" card-body">
+        <h4>titulo comida</h4>
+        <p>descripcion</p>
+        <p class="fw-bold">$500</p>
+        <button class="btn btn-success btn-sm d-flex align-content-center justify-content-evenly" style="height: 30px;width:100px">
+          <i class="bi bi-cart-plus"></i>
+          <p class="">Agregar</p>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

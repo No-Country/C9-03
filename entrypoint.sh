@@ -1,6 +1,7 @@
-#!/bin/bash
 set -e
 
-rm -f /t-cnica/tmp/pids/server.pid
+if [ -f tmp/pids/server.pid ]; then
+  rm tmp/pids/server.pid
+fi
 
-exec "$@"
+exec bundle exec "$@"
