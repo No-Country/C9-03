@@ -16,12 +16,41 @@
 }
 
 #cart {
-    margin-left: 40px;
+    margin-left: 20px;
 }
+#profile {
+    margin-left: 20px;
+}
+#location {
+    margin-left: 20px;
+}
+
+
 .form-control {
     /* make it wider */
     width: 300px;
 }
+
+
+  .ubicacion{
+    margin-left: 4px;
+  }
+
+  .nav-item{
+    font-size: 16px;
+    color: #001;
+  }
+
+.icon:hover{
+    color: #F07167;
+    transition: all 0.2s;
+}
+
+  #contenedor-menu{
+    margin-right: 30px;
+  }
+
+   
 
 @media (max-width: 576px) {
     .form-inline {
@@ -30,4 +59,6 @@
         align-items: center;
         justify-content: center;
     }
+
+ 
 }

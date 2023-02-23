@@ -22,8 +22,7 @@ class StoresController < ApplicationController
     end
 
     
-    def show
-        render json: @store, :include => [:address, :foods], status: :ok
+    def show 
     end
 
     def distance_order(address_object) # Al pasar un pbjeto de Address nos devuelve los locales dentro del radio especificado

@@ -7,3 +7,4 @@
 //= link landing.css
 //= link devise.css
 //= link application.css
+//= link footer.css
