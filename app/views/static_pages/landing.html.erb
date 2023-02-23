@@ -4,10 +4,12 @@
       <h1 class="fw-bolder text-dark text-md-start">¡Hacé tu pedido con <span class="click" id="click">un click!</span></h1>
       <h5 class="text-secondary text-md-start text">No te quedes con el antojo, elegí lo que más te guste y te lo llevamos volando </h5>
       <button class="btn btn-success p-2 w-50 w-lg-100 m-4 text-nowrap" type="button" >
-        <% if current_user.location_id.present? %>
-          <%= link_to "Pedí ahora", "stores#index", class: "nav-link active"%>
-        <% elsif current_user %>
-          <%= link_to "Pedí ahora", "locations#index", class:"nav-link active" %>
+        <% if current_user %>
+          <% if current_user.location_id.present? %>
+            <%= link_to "Pedí ahora", "stores#index", class: "nav-link active"%>
+          <% else %>
+            <%= link_to "Pedí ahora", "locations#index", class: "nav-link active"%>
+          <% end %>
         <% else %>
           <%= link_to "Pedí ahora", new_session_path(User), class:"nav-link active" %>
         <% end %>
