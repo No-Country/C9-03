@@ -12,15 +12,15 @@
 	<div class="d-flex justify-content-start align-content-center flex-column flex-md-row m-4">
 
 <%# -------agregar nombres de comida, puntuacion, precio e imagen%>
-		<%= @store.foods do |food| %>
+		<% @store.foods.each do | food | %>
 
 		<div class="card p-2 m-2 " style="max-width: 200px;">
 			<div style="max-width:200px">
-				<img src="/assets/foods/burguer.jpg" alt="burguer" class="w-100 h-50">
+				<img src="/assets/foods/burguer.jpg" alt="burguer" class="img-fluid">
 			</div>
 			 
 			<div class="card-body">
-				<h4><%=food.name%></h4>
+				<h4><%= food.name  %></h4>
 				<p>Descripción</p>
 				<p class="fw-bold"><%= food.price %></p>
 
