@@ -1,16 +1,16 @@
 <div class="container">
-    <% @stores.each do |store| %>
+  <% @stores.each do |store| %>
     <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <%= image_tag store.url, class: "img-fluid", id: "header-item-2" %>
-            <h5 class="card-title"><%= store.name%></h5>
-            <h5 class="card-title">
-                <%= store.average.round(1) %>
-                <i class="bi bi-star-fill"></i>
-            </h5>
-            <%= link_to 'Ver Local', store_path(store), class: "btn btn-outline-success"%>
-        </div>
+      <div class="card-body">
+        <%= image_tag store.url, class: "img-fluid", id: "header-item-2" %>
+        <h5 class="card-title"><%= store.name%></h5>
+        <h5 class="card-title">
+          <%= store.average&.round(1) %>
+          <i class="bi bi-star-fill"></i>
+        </h5>
+        <%= link_to 'Ver Local', store_path(store), class: "btn btn-outline-success"%>
+      </div>
     </div>
-        <% end %>  
-    </div>  
+  <% end %>
+</div>
 </section>

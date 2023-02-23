@@ -12,6 +12,18 @@ class ShoppingCart < ApplicationRecord
       line_items.create(food_id: food.id, quantity: quantity, price: food.price)
     end
   end
+  
+  def remove_food(food)
+    current_item = line_items.find_by(food_id: food.id)
+    if current_item
+      current_item.quantity -= 1
+      if current_item.quantity < 1
+        current_item.destroy
+      else
+        current_item.save
+      end
+    end
+  end
 
   def total_price
     line_items.sum(:price)

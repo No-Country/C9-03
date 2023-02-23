@@ -21,5 +21,12 @@ class ShoppingCartsController < ApplicationController
       @shopping_cart.checkout
       redirect_to orders_path
     end
+
+    def remove_food
+      @shopping_cart = current_user.current_cart
+      food = Food.find(params[:food_id])
+      @shopping_cart.remove_food(food)
+      redirect_to shopping_cart_path
+    end
 end
   
