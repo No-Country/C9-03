@@ -1,36 +1,28 @@
-
 <header>
-    <div class="d-flex flex-column-reverse flex-md-row align-items-center justify-content-center p-4">
-      
-      <div class="d-flex flex-column justify-content-center align-items-center m-4 w-75 w-md-25">
-          <h1 class="fw-bolder text-dark text-md-start">¡Hacé tu pedido con <span class="click" id="click">un click!</span></h1>
-          <h5 class="text-secondary text-md-start text">No te quedes con el antojo, elegí lo que más te guste y te lo llevamos volando </h5>
-          <button class="btn btn-success p-2 w-50 w-lg-100 m-4 text-nowrap" type="button" >
-          <% if current_user %>
-            <%= link_to "Pedí ahora", "locations#index", class:"nav-link active" %>
+  <div class="d-flex flex-column-reverse flex-md-row align-items-center justify-content-center p-4">
+    <div class="d-flex flex-column justify-content-center align-items-center m-4 w-75 w-md-25">
+      <h1 class="fw-bolder text-dark text-md-start">¡Hacé tu pedido con <span class="click" id="click">un click!</span></h1>
+      <h5 class="text-secondary text-md-start text">No te quedes con el antojo, elegí lo que más te guste y te lo llevamos volando </h5>
+      <button class="btn btn-success p-2 w-50 w-lg-100 m-4 text-nowrap" type="button" >
+        <% if current_user %>
+          <% if current_user.location_id.present? %>
+            <%= link_to "Pedí ahora", "stores#index", class: "nav-link active"%>
           <% else %>
-            <%= link_to "Pedí ahora", new_session_path(User), class:"nav-link active" %>
+            <%= link_to "Pedí ahora", "locations#index", class: "nav-link active"%>
           <% end %>
-          </button>
-      </div>
-
-
-<%# -------Imagen del header responsive%>
-
-      <div class="container-fluid d-flex justify-content-center p-md-4">    
-        <img src="assets/pizza.jpg" class="w-100 w-md-25 h-md-25" id="img">
-     </div>
-
-     
+        <% else %>
+          <%= link_to "Pedí ahora", new_session_path(User), class:"nav-link active" %>
+        <% end %>
+      </button>
+    </div>
+    <%# -------Imagen del header responsive%>
+    <div class="container-fluid d-flex justify-content-center p-md-4">
+      <img src="assets/pizza.jpg" class="w-100 w-md-25 h-md-25" id="img">
+    </div>
   </div>
-
 </header>
-
-
 <section>
-
-<%# -------Esta seccion la reemplazaria por otra cosa. se rompe y no queda bien en responsive%>
-
+  <%# -------Esta seccion la reemplazaria por otra cosa. se rompe y no queda bien en responsive%>
   <div class="container-fluid w-100 h-25 ">
     <div class="mt-4 mb-4 p-4 d-flex justify-content-around">
       <% @stores = Store.all.sample(3).each do |store| %>
@@ -53,9 +45,7 @@
       <% end %>
     </div>
   </div>
-
 </section>
-
 <style >
   #img{
     border-radius: 20px;
@@ -66,6 +56,4 @@
     font-size: 3rem;
     margin-bottom: 2rem;
   }
-
-
 </style>

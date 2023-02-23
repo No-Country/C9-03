@@ -7,6 +7,7 @@ services:
       POSTGRES_PASSWORD: password
   web:
     build: .
+    command: bundle exec rails server -b '0.0.0.0' -p 3000 -P /tmp/rails.pid
     volumes:
       - .:/myapp
     ports:

@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   end
   resources :stores, only: %i[index show]
   resources :locations, only: %i[index create]
+  resource :shopping_cart, only: %i[show] do
+    post 'add_food/:food_id(/:quantity)', action: :add_food, as: :add_food_to
+    post 'checkout', action: :checkout, as: :checkout
+  end
 end

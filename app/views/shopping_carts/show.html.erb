@@ -1,0 +1,28 @@
+<h1>Shopping Cart</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Subtotal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @shopping_cart.line_items.each do |item| %>
+      <tr>
+        <td><%= item.food.name %></td>
+        <td><%= number_to_currency(item.food.price) %></td>
+        <td><%= item.quantity %></td>
+        <td><%= number_to_currency(item.food.price * item.quantity) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="3">Total</td>
+      <td><%= number_to_currency(@shopping_cart.total_price) %></td>
+    </tr>
+  </tfoot>
+</table>
+<%= link_to "Checkout", checkout_shopping_cart_path, method: :post %>

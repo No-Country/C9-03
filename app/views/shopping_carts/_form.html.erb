@@ -1,0 +1,5 @@
+<%= form_tag add_food_to_shopping_cart_path(food_id: @food.id), method: :post do %>
+  <%= label_tag :quantity, "Quantity:" %>
+  <%= number_field_tag :quantity, 1, min: 1 %>
+  <%= submit_tag "Add to cart" %>
+<% end %>

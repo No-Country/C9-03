@@ -27,17 +27,14 @@
       <% end %>
       <ul class="navbar-nav">
         <li class="nav-item">
-
           <a class="nav-link icon" href="#" id="location"><i class="bi bi-geo-alt"></i><span class="ubicacion"><%= get_location %></span></a>
-        </li> 
-        <li class="nav-item"> 
-          <a class="nav-link" href="#" id="profile"><i class="bi bi-person icon"></i></a>
-
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="cart"><i class="bi bi-cart icon"></i></a>
+          <a class="nav-link" href="#" id="profile"><i class="bi bi-person icon"></i></a>
         </li>
-       
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="cart"><i class="bi bi-cart icon"></i><%= link_to "Carrito", "shopping_cart#show" %></a>
+        </li>
       </ul>
     </div>
   </div>
