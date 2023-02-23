@@ -30,5 +30,9 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 },
             format: { with: VALID_EMAIL_REGEX }, uniqueness: true
   validates :name, presence: true
+  has_one :shopping_cart, dependent: :destroy
 
+  def current_cart
+    self.shopping_cart
+  end
 end
