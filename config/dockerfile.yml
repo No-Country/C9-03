@@ -12,6 +12,7 @@ options:
   parallel: false
   platform: 
   postgresql: true
+  precompile: 
   prepare: true
   redis: true
   swap: 
