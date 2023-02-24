@@ -11,10 +11,12 @@
 #  reset_password_token   :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  location_id            :bigint
 #
 # Indexes
 #
 #  index_users_on_email                 (email) UNIQUE
+#  index_users_on_location_id           (location_id)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 require "test_helper"
