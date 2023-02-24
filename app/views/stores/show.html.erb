@@ -1,4 +1,7 @@
 <section>
+
+
+
   <div class="container-fluid bg-dark bg-gradient p-4  " id="local-header" style="height: 14rem;">
     <h2 class="fw-bold" style="color:whitesmoke;"><%=@store.name%></h2>
     <p class="fw-semibold" style="color:whitesmoke;">4.8</p>
@@ -15,7 +18,7 @@
         <div class="card-body">
           <h4><%=food.name%></h4>
           <p>Descripción</p>
-          <p class="fw-bold"><%= food.price %></p>
+          <p class="fw-bold">$<%= food.price %></p>
           <%= form_with(url: add_food_to_shopping_cart_path(food.id), method: :post) do |form| %>
             <%= form.number_field :quantity, value: 1, min: 1, max: 10, class: "form-control mb-3" %>
             <%= form.submit "Add to cart", class: "btn btn-primary" %>
@@ -65,4 +68,5 @@
       </div>
     </div>
   </div>
+
 </section>
