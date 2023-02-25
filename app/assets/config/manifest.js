@@ -8,3 +8,4 @@
 //= link devise.css
 //= link application.css
 //= link footer.css
+// SDK MercadoPago.js

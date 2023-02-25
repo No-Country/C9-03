@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+<p>Test mp</p>
+<p> Total </p>
+<%= @total_price %>
+<!DOCTYPE html>
+    <html>
+    <body>
+        <div class="checkout-btn"></div>
+        <script src="https://sdk.mercadopago.com/js/v2"></script>
+        <script>
+            const mp = new MercadoPago('TEST-21a4a1ad-cddb-4363-9e9f-1a4c4ecc5d20', {
+                locale: 'es-AR'
+            })
+            const checkout = mp.checkout({
+                preference: {
+                    id: '<%= @preference_id %>'
+                    
+                }
+                
+            });
+            checkout.render({
+                container: '.checkout-btn',
+                label: 'Pagar con Mercado Pago'
+            });
+        </script>
+    </body>
+</html>
+

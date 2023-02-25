@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :testmps
   root 'static_pages#landing'
   devise_for :users, :controllers => { registrations: 'users/registrations' }
   # Allows us to use link_to for session destroy
