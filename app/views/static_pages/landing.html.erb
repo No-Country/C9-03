@@ -25,7 +25,6 @@
 
 <section>
 
-
   <%# -------Esta seccion la reemplazaria por otra cosa. se rompe y no queda bien en responsive%>
 
   <div class="d-flex align-items-center text-center justify-content-center"><h3 class="fw-semibold text fs-6 mb-4 align-self-center" style="color:#11A87B;">POPULARES</h3>
@@ -102,26 +101,24 @@
 
   <div class="d-flex flex-column align-items-center justify-content-evenly" >
 
-    <div class="d-flex justify-content-evenly align-items-center m-4 w-100" style="background:#0081A7;height:300px">
-      <p class="d-flex flex-column p-2 text-light text-center"><span class="fw-bolder text fs-1">+1000 </span>pedidos entregados</p>
-      <p class="d-flex flex-column p-2 text-light text-center"><span class="fw-bolder text fs-1">+1000 </span>locales adheridos</p>
-      <p class="d-flex flex-column p-2 text-light text-center"><span class="fw-bolder text fs-1"> 13 </span>países alcanzados</p>
+    <div class="d-flex justify-content-evenly align-items-center m-2 w-100" style="height:200px">
+      <p class="d-flex flex-column p-2 text-center" style="color:#0081A7"><span class="fw-bolder text fs-1">+1000 </span>pedidos entregados</p>
+      <p class="d-flex flex-column p-2 text-center" style="color:#0081A7"><span class="fw-bolder text fs-1">+1000 </span>locales adheridos</p>
+      <p class="d-flex flex-column p-2 text-center" style="color:#0081A7"><span class="fw-bolder text fs-1"> 13 </span>países alcanzados</p>
     </div>
 
-    <button class="btn btn-success p-2 m-4 text-nowrap d-flex text-center fw-bolder" type="button" >
+    <button class="btn btn-success p-2 m-4 text-nowrap d-flex text-center fw-bolder" style="background:#0081A7" type="button" >
           <% if current_user %>
             <%= link_to "Explorar", "locations#index", class:"nav-link active" %>
           <% else %>
             <%= link_to "Explorar", new_session_path(User), class:"nav-link active" %>
           <% end %>
-
           <i class="bi bi-arrow-right"></i>
     </button>
     
   </div>
   
 </section>
-
 
 
 
