@@ -5,6 +5,7 @@
 #  id         :bigint           not null, primary key
 #  name       :string           not null
 #  price      :integer          not null
+#  url        :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  store_id   :bigint           not null
@@ -20,4 +21,5 @@
 class Food < ApplicationRecord
   belongs_to :store
   has_and_belongs_to_many :shopping_cart, optional: true
+  has_one_attached :image
 end
