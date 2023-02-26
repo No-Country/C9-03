@@ -2,6 +2,7 @@
 //= link_tree ../../javascript .js
 //= link_tree ../../../vendor/javascript .js
 //= link_tree .
+//= link mercadopago.js
 
 //= link navbar.css
 //= link landing.css

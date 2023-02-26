@@ -21,6 +21,29 @@
           <% end %>
         </div>
 
+        <div class="checkout-btn"></div>
+        <p> El preference id es <%= @preference_id %> </p>
+<%#              
+              TODO Lo de incluir el js de mercadopago no esta andando, 
+              si anduviera bien la linea esta se podria comentar y deberia andar ok %>
+        <script src="https://sdk.mercadopago.com/js/v2"></script>
+        <script>
+            const mp = new MercadoPago('TEST-21a4a1ad-cddb-4363-9e9f-1a4c4ecc5d20', {
+                locale: 'es-AR'
+            })
+            const checkout = mp.checkout({
+                preference: {
+                    id: '<%= @preference_id %>'
+                    
+                }
+                
+            });
+            checkout.render({
+                container: '.checkout-btn',
+                label: 'Pagar con Mercado Pago'
+            });
+        </script>
+
     <div class="d-flex flex-column flex-md-row justify-content-between w-75" style="margin-top:2rem">
       <h6 class="fw-bold text fs-2 text"style="color:#11A87B">Subtotal</h6>
       <div class="fw-bold text fs-2"><%= number_to_currency(@shopping_cart.total_price) %></div> 

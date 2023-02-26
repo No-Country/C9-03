@@ -3,6 +3,8 @@ class ShoppingCartsController < ApplicationController
   
     def show
       @shopping_cart = current_user.current_cart
+      generate_mercadopago_preference_service = GenerateMercadopagoPreferenceService.new(@shopping_cart)
+      @preference_id = generate_mercadopago_preference_service.call
     end
   
     def add_food

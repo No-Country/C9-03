@@ -1,0 +1,59 @@
+require 'mercadopago'
+
+class GenerateMercadopagoPreferenceService
+    attr_reader :shopping_cart
+
+    def initialize(shopping_cart)
+        # TODO hacer que esta ENV la levante de otro lado
+        @sdk = Mercadopago::SDK.new('TEST-754353421681918-022407-d1cca2f6e8596ec7aa012bed6fc37904-593048532')
+        @shopping_cart = shopping_cart
+    end
+
+    def call
+        preference_response = @sdk.preference.create(create_preference_data)
+        preference = preference_response[:response]
+        preference_id = preference['id']
+    end
+
+    private
+
+    def create_preference_data
+        preference_data = {
+            items: [
+              {
+                # TODO ver si el titulo puede ser varios datos concatenados, 
+                # o si existe alguna opcion para poner el detalle, y ahi mandar info del pedido
+                # como Nombre, direccion, nombre del local, etc (como la factura de pedidos ya)
+
+                title: 'Mi pedido',
+                # TODO creo que la siguiente linea no esta trayendo el precio, 
+                # probar imprimir @shopping_cart.total_price.to_f en la vista show a ver si trae el precio total OK
+                # unit_price: @shopping_cart.total_price.to_f,
+                unit_price: 15.50,
+                quantity: 1
+              }
+            ]
+        }   
+        #  ,
+        #     payment_methods: {
+        #       excluded_payment_types: [ #excluye opcion pagofacil/rapipago
+        #         { id: 'ticket' }
+        #     ]},
+     
+        #     shipments:{#permite especificar el costo de envio en mp
+        #         cost: 180,
+        #         mode: "not_specified",
+        #     }
+
+            # TODO Si usamos esto de back_urls tenemos que crear algunas vistas 
+            # para mostrar una vez que el pago este hecho
+            #,  
+              # back_urls = {
+              #   success: 'https://www.tu-sitio/success',
+              #   failure: 'https://www.tu-sitio/failure',
+              #   pending: 'https://www.tu-sitio/pendings'
+              # },
+              # auto_return: 'approved'
+      
+    end
+end 
