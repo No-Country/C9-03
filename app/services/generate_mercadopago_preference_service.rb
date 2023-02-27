@@ -36,27 +36,25 @@ class GenerateMercadopagoPreferenceService
                 { id: 'ticket' }
             ]},
             back_urls: {
-              success: 'http://localhost:3000',
+              success: 'http://localhost:3000/success',
               failure: 'https://www.tu-sitio/failure',
               pending: 'https://www.tu-sitio/pendings'
             },
             auto_return: 'approved'
         }   
      
-        #     shipments:{#permite especificar el costo de envio en mp
-        #         cost: 180,
-        #         mode: "not_specified",
-        #     }
-
-            # TODO Si usamos esto de back_urls tenemos que crear algunas vistas 
-            # para mostrar una vez que el pago este hecho
-            #,  
-              # back_urls = {
-              #   success: 'https://www.tu-sitio/success',
-              #   failure: 'https://www.tu-sitio/failure',
-              #   pending: 'https://www.tu-sitio/pendings'
-              # },
-              # auto_return: 'approved'
+        # Datos que retorna MP
+        # http://localhost:3000/?collection_id=1312826943
+        # &collection_status=approved
+        # &payment_id=1312826943
+        # &status=approved
+        # &external_reference=null
+        # &payment_type=credit_card
+        # &merchant_order_id=7932643329
+        # &preference_id=593048532-5abba113-b5c9-47b5-8e3d-eb827d669c52
+        # &site_id=MLA
+        # &processing_mode=aggregator
+        # &merchant_account_id=null
       
     end
 end 
