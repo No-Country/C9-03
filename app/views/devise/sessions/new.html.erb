@@ -6,7 +6,7 @@
     
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <h2 class="pb-4">Iniciar sesión</h2>
+      <h2 class="pb-4 fw-bold fs-1">Iniciar sesión</h2>
       <div class="mb-3">
 	<%= f.label :email, class: "form-label" %>
 	<%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
@@ -25,7 +25,7 @@
       <% end %>
 
       <div class="mb-4 mt-4">
-	<%= f.submit t('.sign_in'), class: "btn btn-primary" %>
+	   <%= f.submit t('.sign_in'), class: "btn btn-outline-light btn-lg", style:"background-color:#F07167" %>
       </div>
     <% end %>
 
