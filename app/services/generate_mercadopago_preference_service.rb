@@ -1,5 +1,6 @@
 require 'mercadopago'
 
+
 class GenerateMercadopagoPreferenceService
     attr_reader :shopping_cart
 
@@ -26,19 +27,21 @@ class GenerateMercadopagoPreferenceService
                 # como Nombre, direccion, nombre del local, etc (como la factura de pedidos ya)
 
                 title: 'Mi pedido',
-                # TODO creo que la siguiente linea no esta trayendo el precio, 
-                # probar imprimir @shopping_cart.total_price.to_f en la vista show a ver si trae el precio total OK
-                # unit_price: @shopping_cart.total_price.to_f,
-                unit_price: 15.50,
+                unit_price: @shopping_cart.total_price.to_f, 
                 quantity: 1
               }
-            ]
+            ],
+            payment_methods: {
+              excluded_payment_types: [ #excluye opcion pagofacil/rapipago
+                { id: 'ticket' }
+            ]},
+            back_urls: {
+              success: 'http://localhost:3000',
+              failure: 'https://www.tu-sitio/failure',
+              pending: 'https://www.tu-sitio/pendings'
+            },
+            auto_return: 'approved'
         }   
-        #  ,
-        #     payment_methods: {
-        #       excluded_payment_types: [ #excluye opcion pagofacil/rapipago
-        #         { id: 'ticket' }
-        #     ]},
      
         #     shipments:{#permite especificar el costo de envio en mp
         #         cost: 180,
