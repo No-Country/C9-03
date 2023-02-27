@@ -18,6 +18,12 @@
         </div>
       <% end %>
       <ul class="navbar-nav">
+          
+          <% if current_user %>
+            <li class="nav-link fw-bold text-nowrap">
+              <span> <i class="bi bi-person"></i> Hola <%= current_user.name%>! </span>
+            </li>
+           <% end %>  
 
         <li class="nav-item">
           <% if current_user %>
