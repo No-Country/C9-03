@@ -11,7 +11,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @order.order_items.each do |item| %>
+    <% @order.line_items.each do |item| %>
       <tr>
         <td><%= item.food.name %></td>
         <td><%= number_to_currency(item.food.price) %></td>
@@ -23,7 +23,8 @@
   <tfoot>
     <tr>
       <td colspan="3">Total</td>
-      <td><%= number_to_currency(@order.total_price) %></td>
+      <td><%= number_to_currency(@order.line_items.to_a.sum { |item| item.food.price * item.quantity }) %></td>
     </tr>
+    <td><%= button_to "Submit Payment", order_payment_path(@order), method: :post %> </td>
   </tfoot>
 </table>
