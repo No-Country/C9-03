@@ -25,6 +25,18 @@
       <td colspan="3">Total</td>
       <td><%= number_to_currency(@order.line_items.to_a.sum { |item| item.food.price * item.quantity }) %></td>
     </tr>
-    <td><%= button_to "Submit Payment", order_payment_path(@order), method: :post %> </td>
-  </tfoot>
-</table>
+    <%# call post payment and pass @order.id params %>
+    <td>
+      <%= form_tag order_payment_path(@order), method: :post do %>
+        <script
+          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="pk_test_51Mf4CQAgLOp41ZUXhVjso9M7VyTo5wzjgtHZCvhbg11LgHdp6q9slB7mSfQJeIZdo4GUzEG1kH8M2SLb1DIHRWYE00AHMn1EpL"
+          data-amount="<%= @order.line_items.to_a.sum { |item| item.food.price * item.quantity } %>"
+          data-name="Yendo!"
+          data-description="Food Order"
+          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+          data-locale="auto"
+          data-currency="usd"></script>
+      <% end %>
+    </tfoot>
+  </table>

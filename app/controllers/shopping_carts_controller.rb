@@ -3,7 +3,6 @@ class ShoppingCartsController < ApplicationController
     before_action :set_cart, only: %i[show add_food remove_food checkout]
   
     def show
-      puts "test"
       @shopping_cart = current_user.current_cart
 
     end
@@ -29,10 +28,8 @@ class ShoppingCartsController < ApplicationController
     private
     def set_cart
       if current_user.current_cart.nil?
-        puts "Creating new cart"
         @shopping_cart = ShoppingCart.create!(user: current_user)
       end
-      puts "test"
       @shopping_cart = current_user.current_cart
   end
 end

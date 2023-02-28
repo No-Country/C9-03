@@ -2,14 +2,6 @@
 #
 # Table name: orders
 #
-#  id         :bigint           not null, primary key
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :bigint           not null
-#
-# Indexes
-#
-#  index_orders_on_user_id  (user_id)
 #  id               :bigint           not null, primary key
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
@@ -27,5 +19,6 @@
 #
 class Order < ApplicationRecord
   belongs_to :user
-  has_many :line_items
+  belongs_to :shopping_cart
+  has_many :line_items, through: :shopping_cart
 end
