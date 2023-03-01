@@ -5,7 +5,7 @@
 #  id               :bigint           not null, primary key
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#  shopping_cart_id :bigint
+#  shopping_cart_id :bigint           not null
 #  user_id          :bigint           not null
 #
 # Indexes
@@ -15,6 +15,7 @@
 #
 # Foreign Keys
 #
+#  fk_rails_...  (shopping_cart_id => shopping_carts.id)
 #  fk_rails_...  (user_id => users.id)
 #
 require "test_helper"
