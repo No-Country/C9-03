@@ -92,3 +92,7 @@ gem 'ed25519', '~> 1.2'
 gem 'bcrypt_pbkdf', '~> 1.0'
 
 gem 'stripe'
+
+gem "aasm", "~> 5.5"
+
+gem "stripe_event", "~> 2.7"

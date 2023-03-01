@@ -1,6 +1,5 @@
 <h1>Confirmación de orden</h1>
-<p>Tu orden ha sido confirmada.</p>
-<h2>Resumen de orden</h2>
+<h3>Resumen de orden</h3>
 <table>
   <thead>
     <tr>
@@ -11,8 +10,8 @@
     </tr>
   </thead>
   <tbody>
-    <% @order.line_items.each do |item| %>
-      <tr>
+    <tr>
+      <% @order.line_items.each do |item| %>
         <td><%= item.food.name %></td>
         <td><%= number_to_currency(item.food.price) %></td>
         <td><%= item.quantity %></td>
@@ -26,17 +25,13 @@
       <td><%= number_to_currency(@order.line_items.to_a.sum { |item| item.food.price * item.quantity }) %></td>
     </tr>
     <%# call post payment and pass @order.id params %>
-    <td>
-      <%= form_tag order_payment_path(@order), method: :post do %>
-        <script
-          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="pk_test_51Mf4CQAgLOp41ZUXhVjso9M7VyTo5wzjgtHZCvhbg11LgHdp6q9slB7mSfQJeIZdo4GUzEG1kH8M2SLb1DIHRWYE00AHMn1EpL"
-          data-amount="<%= @order.line_items.to_a.sum { |item| item.food.price * item.quantity } %>"
-          data-name="Yendo!"
-          data-description="Food Order"
-          data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-          data-locale="auto"
-          data-currency="usd"></script>
-      <% end %>
-    </tfoot>
-  </table>
+    <tr>
+      <td colspan="4">
+        <%= form_tag order_payment_path(@order), method: :post do %>
+          <%= hidden_field_tag :order_id, @order.id %>
+          <%= submit_tag "Pagar con Stripe", class: "btn btn-primary" %>
+        <% end %>
+      </td>
+    </tr>
+  </tfoot>
+</table>

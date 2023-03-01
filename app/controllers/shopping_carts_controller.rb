@@ -31,6 +31,6 @@ class ShoppingCartsController < ApplicationController
         @shopping_cart = ShoppingCart.create!(user: current_user)
       end
       @shopping_cart = current_user.current_cart
-  end
+    end
 end
   

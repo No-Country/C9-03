@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   resources :orders, only: %i[show] do
     post 'payment', action: :payment, as: :payment
   end
+  # stripe webhooks
+  mount StripeEvent::Engine, at: '/webhooks'
+  post '/webhooks/stripe', to: 'webhooks#stripe'
+
 end
