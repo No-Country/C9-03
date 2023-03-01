@@ -9,8 +9,15 @@ Rails.application.routes.draw do
   resources :locations, only: %i[index create]
   resource :shopping_cart, only: %i[show] do
     post 'add_food/:food_id(/:quantity)', action: :add_food, as: :add_food_to
-    post 'checkout', action: :checkout, as: :checkout
+    get 'checkout', action: :checkout, as: :checkout
     post 'remove_food/:food_id', action: :remove_food, as: :remove_food_from
   end
+  resources :orders, only: %i[show] do
+    post 'payment', action: :payment, as: :payment
+  end
+  # stripe webhooks
+  #mount StripeEvent::Engine, at: '/webhooks'
+  #post '/webhooks/stripe', to: 'webhooks#stripe'
+
   get "/success" => "static_pages#success"
 end
