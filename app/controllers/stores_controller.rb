@@ -42,6 +42,9 @@ class StoresController < ApplicationController
     
     def show 
 
+        @latitude = @store.location.latitude
+        @longitude = @store.location.longitude
+
     end
 
     def distance_order(location_object) # Al pasar un objeto de Location nos devuelve los locales dentro del radio especificado
