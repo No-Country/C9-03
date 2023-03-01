@@ -1,29 +1,28 @@
 <section>
-  <div class="container-fluid d-flex flex-column align-items-start justify-content-center bg-dark bg-gradient p-4  " id="local-header" style="height: 14rem;">
-    <h2 class="fw-bold fs-1" style="color:whitesmoke;"><%=@store.name%></h2>
-    <p class="fw-semibold" style="color:whitesmoke;">4.8<i class="bi bi-star-fill" style="color:orange; padding-left:2px;"></i></p>
-    <p style="color:whitesmoke;"> <i class="bi bi-truck" style="margin-right:4px ;"></i>Envío $180</p>
+  <div class="container-fluid bg-dark bg-gradient p-4  " id="local-header" style="height: 14rem;">
+    <h2 class="fw-bold" style="color:whitesmoke;"><%=@store.name%></h2>
+    <p class="fw-semibold" style="color:whitesmoke;">4.8</p>
+    <p style="color:whitesmoke;">Envío $180</p>
   </div>
-  <div class="p-4">
-    <h3>Populares</h3>
-    <div class="d-flex justify-content-start align-content-center flex-column flex-md-row m-4 flex-wrap">
-      <% @store.foods.each do |food| %>
-        <div class="card p-2 m-2 " style="max-width: 200px;">
-          <div style="max-width:200px">
-            <%= image_tag food.url, class: "img-fluid" unless food.url.nil? %>
-          </div>
-          <div class="card-body">
-            <h4><%=food.name%></h4>
-            <p>Descripción</p>
-            <p class="fw-bold fs-6" style="color:#F07167">$<%= food.price %></p>
-            <%= form_with(url: add_food_to_shopping_cart_path(food.id), method: :post) do |form| %>
-              <%= form.number_field :quantity, value: 1, min: 1, max: 10, class: "form-control mb-3 w-50" %>
-              <%= form.submit "Agregar", class: "btn btn-success btn-sm" %>
-            <% end %>
-          </div>
+  <h3 class="p-4">Más pedidos</h3>
+  <div class="d-flex justify-content-start align-content-center flex-column flex-md-row m-4">
+    <%# -------agregar nombres de comida, puntuacion, precio e imagen%>
+    <% @store.foods.each do |food| %>
+      <div class="card p-2 m-2 " style="max-width: 200px;">
+        <div style="max-width:200px">
+          <img src="/assets/foods/burguer.jpg" alt="burguer" class="w-100 h-50">
         </div>
-      <% end %>
-    </div>
+        <div class="card-body">
+          <h4><%=food.name%></h4>
+          <p>Descripción</p>
+          <p class="fw-bold"><%= food.price %></p>
+          <%= form_with(url: add_food_to_shopping_cart_path(food.id), method: :post) do |form| %>
+            <%= form.number_field :quantity, value: 1, min: 1, max: 10, class: "form-control mb-3" %>
+            <%= form.submit "Add to cart", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
   <h3 class="p-4">Combos del día</h3>
   <div class="d-flex align-items-center justify-content-start flex-column flex-md-row m-4">
@@ -64,6 +63,23 @@
           <p class="">Agregar</p>
         </button>
       </div>
+          
+              <div> 
+                <h5>Ubicación</h5>
+        <%= js_map [{
+                latitude: @latitude,
+                longitude: @longitude,
+                label: 'Dirección local'
+                }],
+                id: "cities-map",
+                width: "20rem",
+                height: "20rem",
+                markers: {color: "#11a87b"},
+                tooltips: { hover: false, html: true},
+                style: "mapbox://styles/mapbox/outdoors-v12",
+                zoom: 15,
+                controls: true,
+                refresh: 60 %>
     </div>
   </div>
 </section>
