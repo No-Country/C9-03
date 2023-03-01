@@ -2,7 +2,7 @@
   <div class="container-fluid" id="contenedor-menu">
     <a class="navbar-brand" href="#">
       <button class="btn btn-default" onclick="window.location.href='/'" >
-        <%= image_tag "logo.png", :id => "imglogo" %>
+        <img src="/assets/logo-md-transp.png">
       </button>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,10 +23,14 @@
           </li>
         <% end %>
         <li class="nav-item">
-          <a class="nav-link icon" href="#" id="location"><i class="bi bi-geo-alt"></i><span class="ubicacion"><%= get_location %></span></a>
+          <% if current_user %>
+            <%= link_to "Cerrar sesión", sign_out_path, class:"nav-link icon fw-bold" %>
+          <% else %>
+            <%= link_to "Iniciar sesión", new_session_path(User), class:"nav-link icon fw-bold" %>
+          <% end %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" id="profile"><i class="bi bi-person icon"></i></a>
+          <%= link_to get_location, locations_path, class:"nav-link icon bi bi-geo-alt" %>
         </li>
         <li class="nav-item">
           <%= link_to "", shopping_cart_path, class:" nav-link bi bi-cart icon text fs-5" %>
