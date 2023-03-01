@@ -1,7 +1,13 @@
 <section>
   <div class="container-fluid bg-dark bg-gradient p-4  " id="local-header" style="height: 14rem;">
     <h2 class="fw-bold" style="color:whitesmoke;"><%=@store.name%></h2>
-    <p class="fw-semibold" style="color:whitesmoke;">4.8</p>
+    <p class="fw-semibold" style="color:whitesmoke;"><%=@store.average&.round(1)%>
+      <i class="bi bi-star-fill" style="color:#F7B801"></i>
+      <%= link_to 'Finalizar Pedido', shopping_cart_path,class:"btn btn-success text-decoration-none btn-lg", style:"float: right;"%>
+    </p>
+    <p class="fw-semibold" style="color:whitesmoke;">
+      <%=@store.location.street%>
+    </p>
     <p style="color:whitesmoke;">Envío $180</p>
   </div>
   <h3 class="p-4">Más pedidos</h3>
