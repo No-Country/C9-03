@@ -63,6 +63,23 @@
           <p class="">Agregar</p>
         </button>
       </div>
+          
+              <div> 
+                <h5>Ubicación</h5>
+        <%= js_map [{
+                latitude: @latitude,
+                longitude: @longitude,
+                label: 'Dirección local'
+                }],
+                id: "cities-map",
+                width: "20rem",
+                height: "20rem",
+                markers: {color: "#11a87b"},
+                tooltips: { hover: false, html: true},
+                style: "mapbox://styles/mapbox/outdoors-v12",
+                zoom: 15,
+                controls: true,
+                refresh: 60 %>
     </div>
   </div>
 </section>

@@ -1,10 +1,11 @@
 module NavbarHelper
     def get_location
-        if current_user != nil && current_user.location_id != nil
-            user_location = Location.find(current_user.location_id).street
-            user_location
+
+        if current_user && current_user.location_id != nil
+            # Return current address
+            user_location = Location.find(current_user.location_id).street   
         else
-            ' Tu ubicación'
+            'Elegir ubicación'
         end
     end
 

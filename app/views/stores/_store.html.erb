@@ -1,16 +1,38 @@
-<div class="container">
-  <% @stores.each do |store| %>
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <%= image_tag store.url, class: "img-fluid", id: "header-item-2" %>
-        <h5 class="card-title"><%= store.name%></h5>
-        <h5 class="card-title">
-          <%= store.average&.round(1) %>
-          <i class="bi bi-star-fill"></i>
-        </h5>
-        <%= link_to 'Ver Local', store_path(store), class: "btn btn-outline-success"%>
+<section> 
+
+  <h4 class="fw-bold text-success text-center text-md-start m-md-4" style="margin-top: 2rem;">Restaurantes</h4>
+  
+  <div class="d-flex flex-column flex-md-row flex-wrap m-4 p-4 align-items-center justify-content-center">
+
+    <% @stores.each do |store| %>
+
+      <div class="card m-4 card-local d-flex align-items-center justify-content-center" style="height:300px;width:200px" >
+        <div class="card-body d-flex flex-column align-items-center justify-content-evenly ">
+          <%= image_tag store.url, class: "img-fluid" %>
+          <h5 class="card-title fw-bold"><%= store.name%></h5>
+          <p class="card-title text fs-6">
+            <%= store.average&.round(1) %>
+            <i class="bi bi-star-fill" style="color:#F7B801"></i>
+          </p>
+          <%= link_to 'Ver local', store_path(store),class:"btn btn-success text-decoration-none", style:"background-color:#0081A7"%>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
+
+    <% end %>
+
+  </div>
 </section>
+
+<style>
+  
+.card-local:hover{
+
+  transform: scale(1.1);
+  transition: 0.3s;
+  -webkit-box-shadow: 10px -2px 108px -19px rgba(0,0,0,0.28);
+  -moz-box-shadow: 10px -2px 108px -19px rgba(0,0,0,0.28);
+  box-shadow: 10px -2px 108px -19px rgba(0,0,0,0.28);
+
+}
+
+</style>
