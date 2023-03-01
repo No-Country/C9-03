@@ -1,9 +1,14 @@
 <section>
-  <div class="container-fluid d-flex flex-column align-items-start justify-content-center bg-dark bg-gradient p-4  " id="local-header" style="height: 14rem;">
-    <h2 class="fw-bold fs-1" style="color:whitesmoke;"><%=@store.name%></h2>
-    <p class="fw-semibold" style="color:whitesmoke;">4.8<i class="bi bi-star-fill" style="color:orange; padding-left:2px;"></i></p>
-    <p style="color:whitesmoke;"><i class="bi bi-truck" style="margin-right:4px ;"></i>Envío $180</p>
-   
+  <div class="container-fluid bg-dark bg-gradient p-4  " id="local-header" style="height: 14rem;">
+    <h2 class="fw-bold" style="color:whitesmoke;"><%=@store.name%></h2>
+    <p class="fw-semibold" style="color:whitesmoke;"><%=@store.average&.round(1)%>
+      <i class="bi bi-star-fill" style="color:#F7B801"></i>
+      <%= link_to 'Finalizar Pedido', shopping_cart_path,class:"btn btn-success text-decoration-none btn-lg", style:"float: right;"%>
+    </p>
+    <p class="fw-semibold" style="color:whitesmoke;">
+      <%=@store.location.street%>
+    </p>
+    <p style="color:whitesmoke;">Envío $180</p>
   </div>
 
   <div class="p-4">
