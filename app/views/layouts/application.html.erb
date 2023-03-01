@@ -9,18 +9,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <%= stylesheet_link_tag "application", "navbar", "landing", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-    <script src="https://js.stripe.com/v3/"></script>
   </head>
   <body>
     <%= render "components/navbar" %>
     <div style="position:absolute; width: 100%;">
       <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
+      <p class="alert alert-success"><%= notice %></p>
       <% end %>
       <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
+      <p class="alert alert-danger"><%= alert %></p>
       <% end %>
-    </div>
+    </div>  
     <%= yield %>
     <%= render "components/footer" %>
   </body>

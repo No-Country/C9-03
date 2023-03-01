@@ -9,6 +9,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+     
       <%= form_tag(stores_path, method: :get, class: 'form-inline' ) do %>
         <div class="input-group">
           <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
@@ -17,11 +18,13 @@
         </div>
       <% end %>
       <ul class="navbar-nav">
-        <% if current_user %>
-          <li class="nav-link fw-bold text-nowrap">
-            <span> <i class="bi bi-person"></i> Hola <%= current_user.name%>! </span>
-          </li>
-        <% end %>
+          
+          <% if current_user %>
+            <li class="nav-link fw-bold text-nowrap">
+              <span> <i class="bi bi-person"></i> Hola <%= current_user.name%>! </span>
+            </li>
+           <% end %>  
+
         <li class="nav-item">
           <% if current_user %>
             <%= link_to "Cerrar sesión", sign_out_path, class:"nav-link icon fw-bold" %>
@@ -29,12 +32,17 @@
             <%= link_to "Iniciar sesión", new_session_path(User), class:"nav-link icon fw-bold" %>
           <% end %>
         </li>
+
         <li class="nav-item">
           <%= link_to get_location, locations_path, class:"nav-link icon bi bi-geo-alt" %>
         </li>
+
+    
         <li class="nav-item">
-          <%= link_to "", shopping_cart_path, class:" nav-link bi bi-cart icon text fs-5" %>
+        
+            <%= link_to "", "shopping_cart#show",class:" nav-link bi bi-cart icon text fs-5" %>
         </li>
+
       </ul>
     </div>
   </div>
