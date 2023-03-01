@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     post 'checkout', action: :checkout, as: :checkout
     post 'remove_food/:food_id', action: :remove_food, as: :remove_food_from
   end
+  get "/success" => "static_pages#success"
 end
