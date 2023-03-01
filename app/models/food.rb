@@ -29,12 +29,14 @@ class Food < ApplicationRecord
   #move this to a helper in a future
 
   def create_stripe_product
+    Stripe.api_key = 'sk_test_51Mf4CQAgLOp41ZUX84T7CYR6yA8AkK9PLsrw9ZbNy1tZTdB5caRUoU14j3T9FKfnpSRCG9ZybAa63EuqHUkMNqV400MUqXpIyC'
     self.stripe_product_id = Stripe::Product.create(
       name: self.name,
     ).id
     self.save
   end
   def create_stripe_price
+    Stripe.api_key = 'sk_test_51Mf4CQAgLOp41ZUX84T7CYR6yA8AkK9PLsrw9ZbNy1tZTdB5caRUoU14j3T9FKfnpSRCG9ZybAa63EuqHUkMNqV400MUqXpIyC'
     if self.stripe_product_id
       self.stripe_price_id = Stripe::Price.create(
         unit_amount: self.price,
