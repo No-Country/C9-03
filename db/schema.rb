@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_28_185638) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_01_190354) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,6 +27,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_185638) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "url"
+    t.string "stripe_product_id"
+    t.string "stripe_price_id"
     t.index ["store_id"], name: "index_foods_on_store_id"
   end
 
@@ -55,7 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_185638) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "shopping_cart_id"
+    t.bigint "shopping_cart_id", null: false
     t.index ["shopping_cart_id"], name: "index_orders_on_shopping_cart_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -99,6 +101,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_185638) do
   add_foreign_key "line_items", "foods"
   add_foreign_key "line_items", "shopping_carts"
   add_foreign_key "locations", "stores"
+  add_foreign_key "orders", "shopping_carts"
   add_foreign_key "orders", "users"
   add_foreign_key "shopping_carts", "users"
   add_foreign_key "stores", "categories"
