@@ -28,10 +28,12 @@ class StoresController < ApplicationController
             if params[:ratings].present?
                 @stores = @stores.order(average: :desc)
             end
-        # elsif params[:near].present?
-        #     if params[:near] == "true"
-        #         distance_order(Location.second)
-        #     end
+        elsif params[:near].present?
+            if params[:near] == "true"
+                distance_order(Location.find(current_user.location_id).street)
+                # @stores = Store.where(
+                # @stores = @stores.order(:location :asc)
+            end
         else
             @stores = Store.all
             if params[:ratings].present?
@@ -44,13 +46,20 @@ class StoresController < ApplicationController
 
     end
 
-    def distance_order(location_object) # Al pasar un objeto de Location nos devuelve los locales dentro del radio especificado
-        @locations = location_object.nearbys(5)
-        @stores = []
-        @locations.each do |obj|
-            @stores << Store.where(id: obj.store_id)#, only: [:name, :category_id], include: {address: {only: :street}}
+    def distance_order(street) # Al pasar un objeto de Location nos devuelve los locales dentro del radio especificado
+        near = Location.near(street,999).where("store_id  IS NOT NULL")
+        stores = Store.includes(:location).references(:location).merge(near)
+        ids = []
+        stores.each do |ele|
+            ids << ele.id
         end
-        render json: @stores, only: [:name, :category_id] ,  include: {location: {only: :street}}
+        @stores = Store.where(id: ids).in_order_of(:id, ids)
+        # @stores = Store.where("id in (SELECT store_id FROM location_object.nearbys(999) where a = ?)", 3)
+        # # @stores = []
+        # # @locations.each do |obj|
+        #     @stores = Store.where(id: obj.store_id)#, only: [:name, :category_id], include: {address: {only: :street}}
+        # # end
+        # # @stores
     end
 
     def avg
