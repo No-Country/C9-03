@@ -96,3 +96,4 @@ gem 'stripe'
 gem "aasm", "~> 5.5"
 
 gem "stripe_event", "~> 2.7"
+gem 'mercadopago-sdk', '~> 2.1'

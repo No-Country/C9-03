@@ -1,3 +1,12 @@
+<style>
+  .mercadopago-button {
+    /*dont craete newline*/
+  white-space: nowrap;
+  /* make font more thicker */
+  font-weight: 600;
+
+  }
+</style>
 <h1>Confirmación de orden</h1>
 <h3>Resumen de orden</h3>
 <table>
@@ -27,10 +36,35 @@
     <%# call post payment and pass @order.id params %>
     <tr>
       <td colspan="4">
-        <%= form_tag order_payment_path(@order), method: :post do %>
-          <%= hidden_field_tag :order_id, @order.id %>
-          <%= submit_tag "Pagar con Stripe", class: "btn btn-primary" %>
-        <% end %>
+        <div class="row">
+          <div class="col-md-6">
+            <%= form_tag order_payment_path(@order), method: :post do %>
+              <%= hidden_field_tag :order_id, @order.id %>
+              <%= submit_tag "Pagar con Stripe", class: "btn btn-primary btn-block" %>
+            <% end %>
+          </div>
+          <div class="col-md-6">
+            <div class="checkout-btn"></div>
+            <script src="https://sdk.mercadopago.com/js/v2"></script>
+            <script>
+              const mp = new MercadoPago('TEST-21a4a1ad-cddb-4363-9e9f-1a4c4ecc5d20', {
+                  locale: 'es-AR'
+              })
+              const checkout = mp.checkout({
+                  preference: {
+                      id: '<%= @preference_id %>'
+
+                  }
+
+              });
+              checkout.render({
+                  container: '.checkout-btn',
+                  label: 'Pagar con Mercado Pago',
+                  class: 'btn btn-primary',
+              });
+            </script>
+          </div>
+        </div>
       </td>
     </tr>
   </tfoot>

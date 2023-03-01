@@ -18,5 +18,5 @@ Rails.application.routes.draw do
   # stripe webhooks
   mount StripeEvent::Engine, at: '/webhooks'
   post '/webhooks/stripe', to: 'webhooks#stripe'
-
+  get "/success" => "static_pages#success"
 end

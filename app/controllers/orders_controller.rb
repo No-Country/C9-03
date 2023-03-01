@@ -2,6 +2,8 @@ class OrdersController < ApplicationController
     before_action :authenticate_user!
     before_action :set_order, only: [:show, :payment]
     def show
+        generate_mercadopago_preference_service = GenerateMercadopagoPreferenceService.new(@order.shopping_cart)
+        @preference_id = generate_mercadopago_preference_service.call  
         @order
     end
 

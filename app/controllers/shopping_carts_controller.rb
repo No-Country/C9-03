@@ -4,7 +4,6 @@ class ShoppingCartsController < ApplicationController
   
     def show
       @shopping_cart = current_user.current_cart
-
     end
   
     def add_food
