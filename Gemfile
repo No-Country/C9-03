@@ -90,7 +90,6 @@ gem 'popper_js', '~> 2.11', '>= 2.11.6'
 gem "redis", "~> 5.0"
 gem 'ed25519', '~> 1.2'
 gem 'bcrypt_pbkdf', '~> 1.0'
-
 gem 'stripe'
 
 gem "aasm", "~> 5.5"

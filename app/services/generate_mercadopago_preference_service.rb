@@ -27,7 +27,7 @@ class GenerateMercadopagoPreferenceService
                 # como Nombre, direccion, nombre del local, etc (como la factura de pedidos ya)
 
                 title: 'Mi pedido',
-                unit_price: @shopping_cart.total_price.to_i,
+                unit_price: @shopping_cart.total_price.to_f, 
                 quantity: 1
               }
             ],
