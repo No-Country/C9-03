@@ -2,19 +2,27 @@
   <%= render 'map' %>
   <br/>
   <div class="align-self-center flex-grow-1 flex-row align-items-center">
+    <% if !@error.empty? %>  
+      <p> <%= @error %> </p>
+    <% end %>  
+    <% if @current_place %>  
+      <p class="fw-bold m-2"> Su ubicación actual es: <%= @current_place %> </p>
+    <% end %>
     <%= form_with url: locations_path, method: :get do |form| %>
-      <div>
-        <p> Escriba nombre completo de la calle</p>
+      <div class="input-group">
+        <%= text_field_tag(:place, nil , class: 'form-control', placeholder: "ej: Av. Cabildo 4500", required: true) %>
+        <%= submit_tag ("Buscar") , class: 'btn btn-outline-success' %>
       </div>
-      <%= form.text_field :place , value: params[:place], class:'form-control', placeholder:'ej Av. Cabildo 4500'%>
-      <br/>
-      <%= form.submit 'Buscar', class: 'btn btn-light' %>
     <% end %>
-    <%= form_with url: locations_path, method: :post do |form| %>
-      <%= form.hidden_field :place_ , value: params[:place]%>
-      <%= form.hidden_field :place_latitude , value: @latitude%>
-      <%= form.hidden_field :place_longitude, value: @longitude%>
-      <%= form.button 'Guardar', name: "saveplace",  class: 'btn btn-light' %>
-    <% end %>
+    <br>
+    <% if params[:place].present? %>  
+      <%= form_with url: locations_path, method: :post do |form| %>
+        <%= form.hidden_field :place_street , value: params[:place] %> 
+        <%= label_tag 'Ubicación', params[:place], class: 'fw-bold m-2' %>
+        <%= form.hidden_field :place_latitude , value: @latitude%>
+        <%= form.hidden_field :place_longitude, value: @longitude%>
+        <%= form.button 'Guardar nueva ubicación', name: "saveplace",  class: 'btn btn-success' %>
+      <% end %>
+    <% end %>  
   </div>
 </div>
