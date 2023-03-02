@@ -7,7 +7,7 @@
       <button class="btn btn-success p-2 w-50 w-lg-100 m-4 text-nowrap fw-bolder" type="button" >
         <% if current_user %>
           <% if current_user.location_id.present? %>
-            <%= link_to "Pedí ahora", "stores#index", class: "nav-link active"%>
+            <%= link_to "Pedí ahora", "stores", class: "nav-link active"%>
           <% else %>
             <%= link_to "Pedí ahora", "locations#index", class: "nav-link active"%>
           <% end %>
@@ -129,15 +129,6 @@
       <p class="d-flex flex-column p-2 text-center" style="color:#0081A7"><span class="fw-bolder text fs-1"> 13 </span>países alcanzados</p>
     </div>
 
-    <button class="btn btn-success p-2 m-4 text-nowrap d-flex text-center fw-bolder" style="background-color:#0081A7" type="button" >
-          <% if current_user %>
-            <%= link_to "Explorar", "locations#index", class:"nav-link active" %>
-          <% else %>
-            <%= link_to "Explorar", new_session_path(User), class:"nav-link active" %>
-          <% end %>
-
-          <i class="bi bi-arrow-right"></i>
-    </button>
     
   </div>
   
