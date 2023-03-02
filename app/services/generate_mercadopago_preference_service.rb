@@ -36,7 +36,7 @@ class GenerateMercadopagoPreferenceService
                 { id: 'ticket' }
             ]},
             back_urls: {
-              success: 'http://localhost:3000/success',
+              success: 'https://yendo.graciani.ar/success',
               failure: 'https://www.tu-sitio/failure',
               pending: 'https://www.tu-sitio/pendings'
             },
