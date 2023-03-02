@@ -5,6 +5,11 @@ class StaticPagesController < ApplicationController
     end
 
     def success
+        
+        if params[:search].present? && params[:collection_status].equal("approved")
+            current_user.current_cart.destroy
+        end
+        
         render :success
     end    
 end
