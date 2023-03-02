@@ -2,42 +2,45 @@ class StoresController < ApplicationController
     before_action :set_store, only: %i[show avg]
 
     def index
-
+        @stores = Store.all
         @categories = Category.all
-        if params[:search].present?
-            @stores = Store.includes(:foods).where("stores.name ILIKE :search OR foods.name ILIKE :search", search: "%#{params[:search]}%").references(:foods)
-            if params[:category_id].present?
-                @stores = Store.includes(:foods).where("stores.name ILIKE :search OR foods.name ILIKE :search", search: "%#{params[:search]}%").references(:foods).where("category_id = ?", params[:category_id])
-                if params[:ratings].present?
-                    @stores = @stores.order(average: :desc)
-                end
-            elsif params[:ratings].present?
-                if params[:category_id].present?
-                    @stores = Store.includes(:foods).where("stores.name ILIKE :search OR foods.name ILIKE :search", search: "%#{params[:search]}%").references(:foods).where("category_id = ?", params[:category_id])
-                end    
-                @stores = @stores.order(average: :desc)
-            end
-        elsif params[:ratings].present?
-            @stores = Store.all
-            if params[:category_id].present?
-                @stores = Store.includes(:foods).where("stores.name ILIKE :search OR foods.name ILIKE :search", search: "%#{params[:search]}%").references(:foods).where("category_id = ?", params[:category_id])
-            end
-            @stores = @stores.order(average: :desc)
-        elsif params[:category_id].present? #si encuentra parametros de categoria mostrará los que se corresponda
-            @stores = Store.where("category_id = ?", params[:category_id])
-            if params[:ratings].present?
-                @stores = @stores.order(average: :desc)
-            end
+        @stores = @stores.includes(:foods).filter_by_search(params[:search]).references(:foods) if params[:search].present?
+        @stores = @stores.filter_by_category(params[:category_id]) if params[:search].present? && params[:category_id].present?
+        @stores = @stores.where("category_id = ?", params[:category_id]) if params[:category_id].present?
+        @stores = @stores.order(average: :desc) if params[:ratings].present?
+        #     @stores = Store.includes(:foods).where("stores.name ILIKE :search OR foods.name ILIKE :search", search: "%#{params[:search]}%").references(:foods)
+        #     if params[:category_id].present?
+        #         @stores = Store.includes(:foods).where("stores.name ILIKE :search OR foods.name ILIKE :search", search: "%#{params[:search]}%").references(:foods).where("category_id = ?", params[:category_id])
+        #         if params[:ratings].present?
+        #             @stores = @stores.order(average: :desc)
+        #         end
+        #     elsif params[:ratings].present?
+        #         if params[:category_id].present?
+        #             @stores = Store.includes(:foods).where("stores.name ILIKE :search OR foods.name ILIKE :search", search: "%#{params[:search]}%").references(:foods).where("category_id = ?", params[:category_id])
+        #         end    
+        #         @stores = @stores.order(average: :desc)
+        #     end
+        # elsif params[:ratings].present?
+        #     @stores = Store.all
+        #     if params[:category_id].present?
+        #         @stores = Store.includes(:foods).where("stores.name ILIKE :search OR foods.name ILIKE :search", search: "%#{params[:search]}%").references(:foods).where("category_id = ?", params[:category_id])
+        #     end
+        #     @stores = @stores.order(average: :desc)
+        # elsif params[:category_id].present? #si encuentra parametros de categoria mostrará los que se corresponda
+        #     @stores = Store.where("category_id = ?", params[:category_id])
+        #     if params[:ratings].present?
+        #         @stores = @stores.order(average: :desc)
+        #     end
         # elsif params[:near].present?
         #     if params[:near] == "true"
         #         distance_order(Location.second)
         #     end
-        else
-            @stores = Store.all
-            if params[:ratings].present?
-                @stores = @stores.order(average: :desc)
-            end
-        end
+        # else
+            # @stores = Store.all
+            # if params[:ratings].present?
+            #     @stores = @stores.order(average: :desc)
+            # end
+        # end
     end
     
     def show 

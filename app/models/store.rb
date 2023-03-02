@@ -27,6 +27,9 @@ class Store < ApplicationRecord
     has_one_attached :image
     before_save :update_average
     scope :filter_by_ratings, ->(ratings) { where('average >= ?', ratings )}
+    scope :filter_by_search, ->(search) {where("stores.name ILIKE :search OR foods.name ILIKE :search", search: "#{search}%")}
+    scope :filter_by_category, ->(category_id) {where("category_id = ?", category_id)}
+
     def update_average
         avg = 0
         self.ratings.each { |x| avg += x }
