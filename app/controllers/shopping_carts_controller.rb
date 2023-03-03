@@ -1,38 +1,44 @@
 class ShoppingCartsController < ApplicationController
     before_action :authenticate_user!
-    before_action :set_cart, only: %i[show add_food remove_food checkout]
+    before_action :current_cart
   
     def show
-      generate_mercadopago_preference_service = GenerateMercadopagoPreferenceService.new(@shopping_cart)
+      generate_mercadopago_preference_service = GenerateMercadopagoPreferenceService.new(@current_cart)
       @preference_id = generate_mercadopago_preference_service.call
-      @shopping_cart
+      @current_cart
     end
   
     def add_food
       food = Food.find(params[:food_id])
       quantity = params[:quantity] || 1
       
-      @shopping_cart.add_food(food, quantity)
+      @current_cart.add_food(food, quantity)
     end
   
     def checkout
-      @shopping_cart.checkout
-      redirect_to order_path(@shopping_cart.order)
+      @current_cart.checkout
+      redirect_to order_path(@current_cart.order)
     end
 
     def remove_food
       food = Food.find(params[:food_id])
-      @shopping_cart.remove_food(food)
+      @current_cart.remove_food(food)
       redirect_to shopping_cart_path
     end
-
     private
-    def set_cart
-      current_cart = current_user.current_cart
-      if current_cart.nil?
-        current_cart = ShoppingCart.create!(user: current_user)
-        current_user.set_current_cart(current_cart)
+    def current_cart
+      if session[:shopping_cart_id]
+        shopping_cart = ShoppingCart.find_by(:id => session[:shopping_cart_id])
+        if shopping_cart.present?
+          @current_cart = shopping_cart
+        else
+          session[:shopping_cart_id] = nil
+        end
       end
-      @shopping_cart = current_cart
-    end
+
+      if session[:shopping_cart_id] == nil
+        @current_cart = ShoppingCart.create!(user: current_user)
+        session[:shopping_cart_id] = @current_cart.id
+      end
+    end 
 end

@@ -7,16 +7,11 @@ class StaticPagesController < ApplicationController
     end
 
     def success
-        
-        if params[:search].present? && params[:collection_status].equal("approved")
-            current_user.current_cart.destroy
-        end
-        
         render :success
     end
 
     private
     def unset_cart
-        current_user.unset_current_cart
+        session[:shopping_cart_id] = nil
     end
 end

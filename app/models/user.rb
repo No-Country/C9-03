@@ -33,20 +33,5 @@ class User < ApplicationRecord
   has_one :shopping_cart, dependent: :destroy
   has_many :orders, dependent: :destroy
 
-  def set_current_cart(cart)
-    @current_cart = cart
-  end
-  
-  def unset_current_cart
-    @current_cart = nil
-  end
-  
-  def current_cart
-    @current_cart
-  end
-  
-  def has_current_cart?
-    !@current_cart.nil?
-  end
 
 end
