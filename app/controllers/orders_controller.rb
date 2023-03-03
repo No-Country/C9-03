@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
             line_items: prices,
             client_reference_id: @order.id,
             payment_method_types: ['card'],
-            success_url: root_url,
+            success_url: success_url,
             cancel_url: root_url,
         )
         #redirect and empty cart

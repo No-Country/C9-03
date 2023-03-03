@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        color: #1f4e78;
+        font-size: 24px;
+        margin: 0 0 20px;
+        padding: 0;
+      }
+      p {
+        color: #333;
+        font-size: 16px;
+        margin: 0 0 10px;
+        padding: 0;
+      }
+      hr {
+        border: none;
+        border-bottom: 1px solid #ccc;
+        margin: 20px 0;
+        padding: 0;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <table cellpadding="0" cellspacing="0" border="0" width="100%">
+      <tr>
+        <td align="center">
+          <img src="<%= attachments['app/assets/images/logo-md.png'] %>" alt="Yendo" width="200" height="auto" />
+        </td>
+      </tr>
+    </table>
+    <h1>¡Gracias por tu compra!</h1>
+    <p>Hola, <%= @user.name %>,</p>
+    <p>Te agradecemos por tu reciente compra en Yendo!</p>
+    <p>Apreciamos tu confianza en nosotros y esperamos que disfrutes una exquisita comida.</p>
+    <p>Acá te adjuntamos un recibo de tu compra.</p>
+    <p>¡Esperamos que nos sigas eligiendo!.</p>
+    <p>Sinceramente,</p>
+    <p>el equipo de Yendo</p>
+    <hr />
+  </body>
+</html>

@@ -33,7 +33,5 @@ class User < ApplicationRecord
   has_one :shopping_cart, dependent: :destroy
   has_many :orders, dependent: :destroy
 
-  def current_cart
-    self.shopping_cart
-  end
+
 end
