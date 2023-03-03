@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+    before_action :authenticate_user!, only: %i[success]
+    before_action :unset_cart, only: %i[success]
     
     def landing
         render :landing
@@ -11,5 +13,10 @@ class StaticPagesController < ApplicationController
         end
         
         render :success
-    end    
+    end
+
+    private
+    def unset_cart
+        current_user.unset_current_cart
+    end
 end

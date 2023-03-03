@@ -57,6 +57,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'annotate', '~> 3.2'
   gem "web-console"
+  gem "letter_opener"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -96,3 +97,4 @@ gem "aasm", "~> 5.5"
 
 gem "stripe_event", "~> 2.7"
 gem 'mercadopago-sdk', '~> 2.1'
+gem 'receipts'

@@ -3,9 +3,9 @@ class ShoppingCartsController < ApplicationController
     before_action :set_cart, only: %i[show add_food remove_food checkout]
   
     def show
-      @shopping_cart = current_user.current_cart
       generate_mercadopago_preference_service = GenerateMercadopagoPreferenceService.new(@shopping_cart)
       @preference_id = generate_mercadopago_preference_service.call
+      @shopping_cart
     end
   
     def add_food
@@ -28,10 +28,11 @@ class ShoppingCartsController < ApplicationController
 
     private
     def set_cart
-      if current_user.current_cart.nil?
-        @shopping_cart = ShoppingCart.create!(user: current_user)
+      current_cart = current_user.current_cart
+      if current_cart.nil?
+        current_cart = ShoppingCart.create!(user: current_user)
+        current_user.set_current_cart(current_cart)
       end
-      @shopping_cart = current_user.current_cart
+      @shopping_cart = current_cart
     end
 end
-  

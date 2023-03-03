@@ -43,9 +43,11 @@ class WebhooksController < ApplicationController
 
     # You can access the order id from the client reference id
     order_id = checkout_session.client_reference_id
-    #empty cart for current user
-    current_user.current_cart.destroy
 
+    order = Order.find(order_id)
+
+    my_hash = checkout_session.to_json
+    OrderMailer.receipt(order, checkout_session).deliver_now
 
   end
 
