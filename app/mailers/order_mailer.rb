@@ -35,7 +35,7 @@ class OrderMailer < ApplicationMailer
         ["Subtotal", @my_hash["amount_subtotal"]],
         ["Impuestos", @my_hash["total_details"]["amount_tax"]],
         ["Descuentos", @my_hash["total_details"]["amount_discount"]],
-        ["Envío", "180$",
+        ["Envío", "180$"],
         ["Total", @my_hash["amount_total"]],
         ["<b>Monto pagado:</b>", @my_hash["amount_total"].to_i + 180]
       ],
