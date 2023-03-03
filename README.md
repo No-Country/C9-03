@@ -60,13 +60,11 @@ https://www.w3schools.com/git/
 
 ### Releases:
 
-## Semana 0:
-https://food-delivery-release0.fly.dev/
-## Semana 1:
-- TO BE RELEASED
+## Semana 4:
+https://yendo.graciani.ar
 
 # Integrantes
-- Lautaro Graciani, FullStack / Front end
+- Lautaro Graciani, FullStack
 - María Martin, UX-UI / Front end
-- Rocío Godoy, Backend
+- Rocío Godoy, Fullstack
 - Rodrigo Ladron de Guevara, Backend
