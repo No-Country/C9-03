@@ -100,3 +100,4 @@ gem 'mercadopago-sdk', '~> 2.1'
 gem 'receipts'
 
 gem "matrix", "~> 0.4.2"
+gem 'sendgrid-ruby'
