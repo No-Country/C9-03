@@ -5,33 +5,63 @@
             Ordenar por
           </button>
           <ul class="dropdown-menu ">
-            <li><% if params[:search].present? || params[:category_id].present? %>
-                <%= link_to "Puntuación" , request.original_url + "&ratings=true", class: "dropdown-item"%>
-                <%else %>
+            <li class="dropdown-item">
+              <% if params[:search].present? || params[:category_id].present? || params[:near].present? || params[:ratings].present?%>
+                <% if params[:near].present? %>
+                  <%= link_to 'Puntuación' ,request.original_url.gsub("near=true", "ratings=true"), class: "dropdown-item"%>
+                <% elsif params[:ratings].present? %> <%# si ya tiene el param rating, devuelve lo mismo%>
+                  <%= link_to "Puntuación" ,request.original_url, class: "dropdown-item"%>
+                <%else%><%# si NO  tiene el param rating, lo agrega%>
+                  <%= link_to "Puntuación" , request.original_url + "&ratings=true", class: "dropdown-item"%>    
+                <%end%>
+              <%else %>
                 <%= link_to "Puntuación" , request.original_url + "?ratings=true", class: "dropdown-item" %>
-                <%end%></li> 
-            <li><%= link_to "Más de 4 estrellas" , "stores?ratings=4", class: "dropdown-item" %></a></li>
-            <li class="dropdown-item">Más cercano</li>
+              <%end%>
+            </li> 
+            <li class="dropdown-item">
+              <% if params[:search].present? || params[:category_id].present? || params[:near].present? || params[:ratings].present?%>
+                  <% if params[:ratings].present? %>
+                    <%= link_to 'Más cercano' ,request.original_url.gsub("ratings=true", "near=true"), class: "dropdown-item"%>
+                  <% elsif params[:near].present? %>
+                    <%= link_to "Más cercano" ,request.original_url, class: "dropdown-item"%>
+                  <%else%>
+                    <%= link_to 'Más cercano' , request.original_url + "&near=true" , class: "dropdown-item"  %>
+                  <%end%>
+              <%else %>
+                <%= link_to 'Más cercano' , request.original_url + "?near=true" , class: "dropdown-item"%>
+              <%end%>  
+            </li>
           </ul>
-     </div>
+        </div>
      
-            <div class="dropdown-center p-1">
+      <div class="dropdown-center p-1">
         <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color:#F07167">
           Filtrar por
         </button>
         <ul class="dropdown-menu">
           <li><h6 class="dropdown-header">Categorías</h6></li>
         <% @categories.each do |category| %>
-          <li><% if params[:search].present? || params[:ratings].present? %>
-              <li><%= link_to category.name ,request.original_url + "&category_id=#{category.id}" , class: "dropdown-item"%></a>
-          <%else%>
+          <li><% if params[:search].present? || params[:ratings].present? || params[:near].present?%>
+                <%if params[:category_id].present? %> <%#si tiene param de categoria lo reemplza%>
+                  <li><%= link_to category.name ,request.original_url.gsub("=#{params[:category_id]}", "=#{category.id}"), class: "dropdown-item"%></a> 
+                <%else%> <%#si no tiene param de categoria lo agrega%>
+                  <li><%= link_to category.name ,request.original_url + "&category_id=#{category.id}" , class: "dropdown-item" %></a>
+                <%end%>
+            <%else%>
               <li><%= link_to category.name , "stores?category_id=#{category.id}" , class: "dropdown-item"%></a>
-          <%end%></li>
+            <%end%></li>
         <%end%>
         </ul>
       </div>
-    </div>
 
+      
+    </div>
+    <% if params[:search].present? || params[:category_id].present? || params[:near].present? || params[:ratings].present?%>
+        <button class="btn btn-outline-light" type="button" style="background-color:#F07167 ; margin-left:30px">
+          <%= link_to "Limpiar Filtros" , stores_path, class: "text-decoration-none text-white"%> <i class="bi bi-x"></i>
+
+        </button>
+    <%end%>
 
     <%= render 'store' %>
 
