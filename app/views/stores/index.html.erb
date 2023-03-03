@@ -5,20 +5,28 @@
             Ordenar por
           </button>
           <ul class="dropdown-menu ">
-            <li><% if params[:search].present? || params[:category_id].present? %>
-                  <% if params[:ratings].present? %> <%# si ya tiene el param rating, devuelve lo mismo%>
-                    <%= link_to "Puntuación" ,request.original_url, class: "dropdown-item"%>
-                    <%else%><%# si NO  tiene el param rating, lo agrega%>
-                      <%= link_to "Puntuación" , request.original_url + "&ratings=true", class: "dropdown-item"%>    
-                    <%end%>
-                <%else %>
-                  <%= link_to "Puntuación" , request.original_url + "?ratings=true", class: "dropdown-item" %>
-                <%end%></li> 
-            <li class="dropdown-item">Más cercano</li>
+            <li class="dropdown-item">
+              <% if params[:search].present? || params[:category_id].present? %>
+                <% if params[:ratings].present? %> <%# si ya tiene el param rating, devuelve lo mismo%>
+                  <%= link_to "Puntuación" ,request.original_url, class: "dropdown-item"%>
+                <%else%><%# si NO  tiene el param rating, lo agrega%>
+                  <%= link_to "Puntuación" , request.original_url + "&ratings=true", class: "dropdown-item"%>    
+                <%end%>
+              <%else %>
+                <%= link_to "Puntuación" , request.original_url + "?ratings=true", class: "dropdown-item" %>
+              <%end%>
+            </li> 
+            <li class="dropdown-item">
+              <% if params[:search].present? || params[:category_id].present? || params[:ratings].present? %>
+                <%= link_to 'Más cercano' , request.original_url + "&near=true" , class: "dropdown-item"%>
+              <%else %>
+                <%= link_to 'Más cercano' , request.original_url + "?near=true" , class: "dropdown-item"%>
+              <%end%>  
+            </li>
           </ul>
-     </div>
+        </div>
      
-            <div class="dropdown-center p-1">
+      <div class="dropdown-center p-1">
         <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color:#F07167">
           Filtrar por
         </button>
