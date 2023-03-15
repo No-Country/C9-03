@@ -16,8 +16,8 @@
 
 <section class="p-4">
 
-  <h2 class="fw-bold">Confirmá tu pedido</h1>
-  <h4 class="fw-semibold">Resumen de orden</h3>
+  <h2 class="fw-bold"><%= t('order.confirm')%></h1>
+  <h4 class="fw-semibold"><%= t('order.resume')%></h3>
 
   <div>
     <div class="">
@@ -32,7 +32,7 @@
         </div>
       <% end %> 
       <div class="d-flex justify-content-between">
-        <p>Envío (promocion):</p> 
+        <p><%= t('order.shipping_cost_promotion')%></p> 
         <p class="fw-bold fs-5"> $0</p>
       </div>`
     </div>
@@ -43,12 +43,12 @@
       <h6 class="fw-bold fs-2" >Total</h6> 
       <div class="fw-bold fs-2"><%= number_to_currency(@order.line_items.to_a.sum { |item| item.food.price * item.quantity }) %></div>
     </div>      
-    <p>Elegí tu método de pago</p>
+    <p><%= t('payment.choice')%></p>
     <div class="form-check" >
       <div class="m-2">  
-        <%= form_tag order_payment_path(@order), method: :post do %>
+        <%= form_tag order_payment_path(@order, locale: I18n.locale), method: :post do %>
           <%= hidden_field_tag :order_id, @order.id %>
-          <%= submit_tag "Pagar con Stripe", class: "btn btn-primary btn-block size_button" %>
+          <%= submit_tag t('payment.stripe'), class: "btn btn-primary btn-block size_button" %>
         <% end %>   
       </div>  <%# call post payment and pass @order.id params %>
                   
@@ -56,7 +56,7 @@
           
       <div class="m-2">
         <button class="btn btn-primary btn-block size_button">
-          <%= link_to "Pagar con efectivo", success_path , class:"nav-link active"%>
+          <%= link_to t('payment.cash'), success_path , class:"nav-link active"%>
         </button>
       </div>
     </div>
@@ -76,8 +76,8 @@
     });
     checkout.render({
         container: '.checkout-btn',
-        label: 'Pagar con Mercado Pago',
+        label: '<%= t("payment.mercadopago") %>',
         class: 'btn btn-primary size_button',
     });
-  </script>  
+  </script>
 </section>

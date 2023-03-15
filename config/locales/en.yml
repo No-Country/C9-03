@@ -1,33 +1,79 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  navbar:
+    search_placeholder: "Search for a store or food"
+    hello_user: "Hello %{user}!"
+    sign_out: "Sign Out"
+    sign_in: "Sign In"
+    search_button: "Search"
+    language_spanish: "Español"
+    language_english: "English"
+    choose_location: "Choose location"
+    footer:
+      about_us: "Sobre nosotros"
+  landing_page:
+      make_order: "Order with just a button!"
+      make_order_subtext: "Craving? Choose what you like and we'll bring it to you in minutes."
+      order_now: "Order now"
+      onboarding:
+        onboard_1: "HOW DOES IT WORKS"
+        onboard_2: "Log in and input your address"
+        onboard_3: "Select your favourite restaurants"
+        onboard_4: "Add foods to your cart"
+        onboard_5: "And that's it! We'll bring your order in a single delivery"
+        onboard_6: "YES! Yendo brings you everything in one trip!"
+      popular: "POPULAR"
+      pitch:
+        one: "Why choose Yendo?"
+        two: "Save money in delivery costs"
+        two_subtext: "More than one restaurant, but the same delivery"
+        three: "Best offers"
+        three_subtext: "We have the best discounts and offers"
+        four: "Easy to use"
+        four_subtext: "Order anything with a simple few steps."
+      numbers:
+        delivered_orders: "orders delivered"
+        partnered_restaurants: "partnered restaurants"
+        countries_reached: "countries reached"
+  devise:
+    sessions:
+      login: "Log in"
+      sign-in: "Sign in"
+      name: "Name"
+  store:
+    sort_by: "Sort by"
+    filter_by: "Filter by"
+    score: "Rating"
+    nearest: "Nearest"
+    show: "Show store"
+    clear_filters: "Clear filters"
+    categories: "Categories"
+    restaurants: "Restaurants"
+    location: "Location"
+  cart:
+    end_order: "Checkout"
+    shipping_cost: "Shipping cost 180$"
+    popular: "Popular"
+  food:
+    description: "Description"
+    add: "Add"
+    remove: "Remove"
+  order:
+    pay: "Checkout"
+    your_order: "Your order"
+    unit_price: "Unit price:"
+    quantity: "Quantity:"
+    subtotal: "Subtotal:"
+    total: "Total:"
+    confirm: "Confirm your order:"
+    resume: "Order summary:"
+    shipping_cost_promotion: "Shipping cost (discounted):"
+  payment:
+    choice: "Choose your payment method"
+    stripe: "Pay with Stripe"
+    mercadopago: "Pay with Mercado Pago"
+    cash: "Pay in cash"
+  success:
+    congratulations: "Congratulations!"
+    confirmed: "Your order has been confirmed"
+    preparing: "We're preparing your order"
+    estimated: "Estimated delivery in 25-40 minutes"

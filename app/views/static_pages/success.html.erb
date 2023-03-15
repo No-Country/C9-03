@@ -2,12 +2,12 @@
 <section>
   <div class="d-flex flex-column align-items-center justify-content-center p-4">
 
-      <h2  class="fw-bold text-dark ">¡Felicidades!</h2>
-        <h3 class="fw-semibold text-dark "><span></span>Tu orden fue confirmada</h3>
+      <h2  class="fw-bold text-dark "><%= t('success.congratulations') %></h2>
+        <h3 class="fw-semibold text-dark "><span></span><%= t('success.confirmed')%></h3>
         
         <img src="/assets/logo-md-transp.png">
-        <h5 class="text-secondary text-md-start text">a preparar tu pedido</h5>
-        <p class="fw-semibold fw-4 p-2"> <i class="bi bi-bicycle text fs-4 p-2"></i>Entrega estimada en: <span class="fw-bold fs-6">25-40</span> minutos</p>
+        <h5 class="text-secondary text-md-start text"><%= t('success.preparing')%></h5>
+        <p class="fw-semibold fw-4 p-2"> <i class="bi bi-bicycle text fs-4 p-2"></i><%= t('success.estimated')%></p>
 
         <div class="m-4" style="max-width:160px"><img src="/assets/pedido.png" class="img-fluid gif">
         </div>

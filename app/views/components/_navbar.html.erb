@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid" id="contenedor-menu">
     <a class="navbar-brand" href="#">
-      <button class="btn btn-default" onclick="window.location.href='/'" >
+      <button class="btn btn-default" onclick="window.location.href='/<%= I18n.locale.to_s %>'" >
         <img src="/assets/logo-md-transp.png">
       </button>
     </a>
@@ -12,21 +12,21 @@
       <%= form_tag(stores_path, method: :get, class: 'form-inline' ) do %>
         <div class="input-group">
           <span class="input-group-text" id="basic-addon1"><i class="bi bi-search"></i></span>
-          <%= text_field_tag(:search, params[:search], class: 'form-control', placeholder: "Buscá local o comida") %>
-          <%= submit_tag ("Search") , class: 'btn btn-outline-success', disabled: logged_and_location %>
+          <%= text_field_tag(:search, params[:search], class: 'form-control', placeholder: t('navbar.search_placeholder')) %>
+          <%= submit_tag (t('navbar.search_button')), class: 'btn btn-outline-success', disabled: logged_and_location %>
         </div>
       <% end %>
       <ul class="navbar-nav">
         <% if current_user %>
           <li class="nav-link fw-bold text-nowrap">
-            <span> <i class="bi bi-person"></i> Hola <%= current_user.name%>! </span>
+            <span> <i class="bi bi-person"></i> <%= t('navbar.hello_user', user: current_user.name) %> </span>
           </li>
         <% end %>
         <li class="nav-item">
           <% if current_user %>
-            <%= link_to "Cerrar sesión", sign_out_path, class:"nav-link icon fw-bold" %>
+            <%= link_to t('navbar.sign_out'), sign_out_path, class:"nav-link icon fw-bold" %>
           <% else %>
-            <%= link_to "Iniciar sesión", new_session_path(User), class:"nav-link icon fw-bold" %>
+            <%= link_to t('navbar.sign_in'), new_session_path(User), class:"nav-link icon fw-bold" %>
           <% end %>
         </li>
         <li class="nav-item">
@@ -35,6 +35,15 @@
         <li class="nav-item">
           <%= link_to "", shopping_cart_path, class:" nav-link bi bi-cart icon text fs-5" %>
         </li>
+        <% if I18n.locale.to_s == 'en' %>
+          <%= link_to url_for(locale: :es), class: 'btn btn-outline-primary me-2' do %>
+            <%= t('navbar.language_spanish') %>
+          <% end %>
+        <% else %>
+          <%= link_to url_for(locale: :en), class: 'btn btn-outline-primary me-2' do %>
+            <%= t('navbar.language_english') %>
+          <% end %>
+        <% end %>
       </ul>
     </div>
   </div>

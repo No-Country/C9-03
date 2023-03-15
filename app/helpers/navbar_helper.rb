@@ -4,7 +4,7 @@ module NavbarHelper
             # Return current address
             user_location = Location.find(current_user.location_id).street   
         else
-            'Elegir ubicación'
+            t('navbar.choose_location')
         end
     end
 

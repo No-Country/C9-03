@@ -1,17 +1,17 @@
 <header>
   <div class="d-flex flex-column-reverse flex-md-row align-items-center justify-content-center p-4">
     <div class="d-flex flex-column justify-content-center align-items-center m-4 w-75 w-md-25">
-      <h1 class="fw-bolder text-dark text-md-start">¡Hacé tu pedido con <span class="click" id="click">un click!</span></h1>
-      <h5 class="text-secondary text-md-start text">No te quedes con el antojo, elegí lo que más te guste y te lo llevamos volando </h5>
+      <h1 class="fw-bolder text-dark text-md-start"><%= t('landing_page.make_order') %></h1>
+      <h5 class="text-secondary text-md-start text"><%= t('landing_page.make_order_subtext') %></h5>
       <button class="btn btn-success p-2 w-50 w-lg-100 m-4 text-nowrap fw-bolder" type="button" >
         <% if current_user %>
           <% if current_user.location_id.present? %>
-            <%= link_to "Pedí ahora", "stores", class: "nav-link active"%>
+            <%= link_to t('landing_page.order_now'), stores_path, class: "nav-link active" %>
           <% else %>
-            <%= link_to "Pedí ahora", "locations#index", class: "nav-link active"%>
+            <%= link_to t('landing_page.order_now'), locations_path, class: "nav-link active" %>
           <% end %>
         <% else %>
-          <%= link_to "Pedí ahora", new_session_path(User), class:"nav-link active" %>
+          <%= link_to t('landing_page.order_now'), new_session_path(User), class:"nav-link active" %>
         <% end %>
       </button>
     </div>
@@ -24,22 +24,22 @@
 <section>
   <%# -------ONBOARDING DE COMO USAR LA WEB%>
   <div class="d-flex align-items-center text-center justify-content-center">
-    <h3 class="fw-semibold text fs-6 mb-4 align-self-center" style="color:#11A87B;padding: 10px;">COMO FUNCIONA</h3>
+    <h3 class="fw-semibold text fs-6 mb-4 align-self-center" style="color:#11A87B;padding: 10px;"><%= t('landing_page.onboarding.onboard_1') %></h3>
   </div>
   <div class="d-flex flex-column flex-md-row" style="margin-left:2rem; margin-bottom:6rem">
     <img src="/assets/deliver.png" style="max-width: 600px;border-radius: 10px;">
     <div class="d-flex flex-wrap flex-column" style="margin-left:4px">
-      <p class="fw-semibold"><i class="bi bi-check2-circle fw-bold fs-2" style="color:#0081A7;margin-right: 6px;"></i>Logueate e ingresá tu dirección</p>
-      <p class="fw-semibold"><i class="bi bi-check2-circle fw-bold fs-2" style="color:#0081A7;margin-right: 6px;"></i>Elegí tus locales favoritos</p>
-      <p class="fw-semibold"><i class="bi bi-check2-circle fw-bold fs-2" style="color:#0081A7;margin-right: 6px;"></i>Agregá varias comidas a tu orden</p>
-      <p class="fw-semibold"><i class="bi bi-check2-circle fw-bold fs-2" style="color:#0081A7;margin-right: 6px;"></i> Y listo ¡te lo llevamos al precio de un envío!</p>
-      <h4 class="fw-bold p-4 m-2 fs-2" style="color:#F07167">¡SI! Yendo todo en el mismo viaje</h6>
+      <p class="fw-semibold"><i class="bi bi-check2-circle fw-bold fs-2" style="color:#0081A7;margin-right: 6px;"></i><%= t('landing_page.onboarding.onboard_2') %></p>
+      <p class="fw-semibold"><i class="bi bi-check2-circle fw-bold fs-2" style="color:#0081A7;margin-right: 6px;"></i><%= t('landing_page.onboarding.onboard_3') %></p>
+      <p class="fw-semibold"><i class="bi bi-check2-circle fw-bold fs-2" style="color:#0081A7;margin-right: 6px;"></i><%= t('landing_page.onboarding.onboard_4') %></p>
+      <p class="fw-semibold"><i class="bi bi-check2-circle fw-bold fs-2" style="color:#0081A7;margin-right: 6px;"></i><%= t('landing_page.onboarding.onboard_5') %></p>
+      <h4 class="fw-bold p-4 m-2 fs-2" style="color:#F07167"><%= t('landing_page.onboarding.onboard_6') %></h6>
     </div>
   </div>
 </section>
 <section>
   <div class="d-flex align-items-center text-center justify-content-center">
-    <h3 class="fw-semibold text fs-6 mb-4 align-self-center" style="color:#11A87B;">POPULARES</h3>
+    <h3 class="fw-semibold text fs-6 mb-4 align-self-center" style="color:#11A87B;"><%= t('landing_page.popular') %></h3>
   </div>
   <div class="mt-4 mb-4 p-4 d-flex flex-column flex-md-row justify-content-around">
     <% @stores = Store.all.sample(3).each do |store| %>
@@ -54,7 +54,6 @@
             <div class="card-body p-4">
               <h5 class="card-title"><%= store.name%></h5>
               <p class="card-text"><%= store.foods.sample(3).map(&:name).join(", ") %></p>
-              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
           </div>
         </div>
@@ -65,22 +64,22 @@
 </section>
 <section>
   <div class="d-flex flex-column ">
-    <h3 class="fw-semibold text fs-6 mb-4 align-self-center" style="color:#11A87B;">¿POR QUÉ NOSOTROS?</h3>
+    <h3 class="fw-semibold text fs-6 mb-4 align-self-center" style="color:#11A87B;"><%= t('landing_page.pitch.one')%></h3>
     <div class="d-flex flex-column flex-md-row justify-content-evenly">
       <div class="d-flex flex-column align-items-center justify-content-center m-4 p-2">
         <div class="d-flex align-items-center justify-content-center" style="width:100px;height: 100px;border-radius: 100px;background: #F07167"><i class="bi bi-patch-check" style="font-size: 2rem;color: white;"></i></div>
-        <h4 class="fw-bold m-2">Ahorrá en envíos</h4>
-        <p>Más de un local, un sólo envío</p>
+        <h4 class="fw-bold m-2"><%= t('landing_page.pitch.two')%></h4>
+        <p><%= t('landing_page.pitch.two_subtext')%></p>
       </div>
       <div class="d-flex flex-column align-items-center justify-content-center m-4 p-2">
         <div class="d-flex align-items-center justify-content-center" style="width:100px;height: 100px;border-radius: 100px;background: #F07167"><i class="bi bi-shop" style="font-size: 2rem;color: white;"></i> </div>
-        <h4 class="fw-bold m-2">Mejores ofertas</h4>
-        <p>Descuentos y promociones</p>
+        <h4 class="fw-bold m-2"><%= t('landing_page.pitch.three')%></h4>
+        <p><%= t('landing_page.pitch.three_subtext')%></p>
       </div>
       <div class="d-flex flex-column align-items-center justify-content-center m-4 p-2">
         <div class="d-flex align-items-center justify-content-center" style="width:100px;height: 100px;border-radius: 100px;background: #F07167;"><i class="bi bi-card-checklist" style="font-size: 2rem;color: white;"></i></div>
-        <h4 class="fw-bold m-2">Fácil de usar</h4>
-        <p>Pedí lo que quieras en simples pasos</p>
+        <h4 class="fw-bold m-2"><%= t('landing_page.pitch.four')%></h4>
+        <p><%= t('landing_page.pitch.four_subtext')%></p>
       </div>
     </div>
   </div>
@@ -93,9 +92,9 @@
 <section>
   <div class="d-flex flex-column align-items-center justify-content-evenly" >
     <div class="d-flex justify-content-evenly align-items-center m-4 w-100" style="height:300px">
-      <p class="d-flex flex-column p-2 text-center " style="color:#0081A7"><span class="fw-bolder text fs-1">+1000 </span>pedidos entregados</p>
-      <p class="d-flex flex-column p-2 text-center" style="color:#0081A7"><span class="fw-bolder text fs-1">+1000 </span>locales adheridos</p>
-      <p class="d-flex flex-column p-2 text-center" style="color:#0081A7"><span class="fw-bolder text fs-1"> 13 </span>países alcanzados</p>
+      <p class="d-flex flex-column p-2 text-center " style="color:#0081A7"><span class="fw-bolder text fs-1">+10000 </span><%= t('landing_page.numbers.delivered_orders')%></p>
+      <p class="d-flex flex-column p-2 text-center" style="color:#0081A7"><span class="fw-bolder text fs-1">+150 </span><%= t('landing_page.numbers.partnered_restaurants')%></p>
+      <p class="d-flex flex-column p-2 text-center" style="color:#0081A7"><span class="fw-bolder text fs-1"> 13 </span><%= t('landing_page.numbers.countries_reached')%></p>
     </div>
   </div>
 </section>

@@ -17,7 +17,7 @@ class ShoppingCartsController < ApplicationController
   
     def checkout
       @current_cart.checkout
-      redirect_to order_path(@current_cart.order)
+      redirect_to order_path(@current_cart.order, locale: I18n.locale)
     end
 
     def remove_food

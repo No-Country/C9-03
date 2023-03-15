@@ -1,0 +1,80 @@
+es:
+  navbar:
+    search_placeholder: "Buscá una tienda o comida"
+    hello_user: "Hola %{user}!"
+    sign_out: "Cerrar sesión"
+    sign_in: "Iniciar sesión"
+    search_button: "Buscar"
+    language: "Lenguaje"
+    choose_location: "Elegir ubicación"
+    language_spanish: "Español"
+    language_english: "English"
+  footer:
+    about_us: "Sobre nosotros"
+  landing_page:
+    make_order: "¡Hacé tu pedido con un click!"
+    make_order_subtext: "No te quedes con el antojo, elegí lo que más te guste y te lo llevamos volando"
+    order_now: "Pedí ahora"
+    onboarding:
+      onboard_1: "COMO FUNCIONA"
+      onboard_2: "Iniciá sesión e ingresá tu dirección"
+      onboard_3: "Elegí tus locales favoritos"
+      onboard_4: "Agregá varias comidas a tu orden"
+      onboard_5: "Y listo ¡te lo llevamos al precio de un envío!"
+      onboard_6: "¡SI! Yendo todo en el mismo viaje"
+    popular: "POPULARES"
+    pitch:
+      one: "¿POR QUÉ NOSOTROS?"
+      two: "Ahorrá en envíos"
+      two_subtext: "Más de un local, un sólo envío"
+      three: "Mejores ofertas"
+      three_subtext: "Descuentos y promociones"
+      four: "Fácil de usar"
+      four_subtext: "Pedí lo que quieras en simples pasos"
+    numbers:
+      delivered_orders: "pedidos entregados"
+      partnered_restaurants: "locales adheridos"
+      countries_reached: "países alcanzados"
+  devise:
+    sessions:
+      login: "Iniciar sesión"
+      sign-up: "Crear cuenta"
+      name: "Nombre"
+  store:
+    sort_by: "Ordenar por"
+    filter_by: "Filtrar por"
+    score: "Puntuación"
+    nearest: "Más cercano"
+    show: "Ver local"
+    clear_filters: "Limpiar filtros"
+    categories: "Categorías"
+    restaurants: "Restaurantes"
+    location: "Ubicación"
+  cart:
+    end_order: "Finalizar pedido"
+    shipping_cost: "Envío 180$"
+    popular: "Populares"
+  food:
+    description: "Descripción"
+    add: "Agregar"
+    remove: "Quitar"
+  order:
+    pay: "Ir a pagar"
+    your_order: "Tú pedido"
+    unit_price: "Precio por unidad:"
+    quantity: "Cantidad:"
+    subtotal: "Subtotal:"
+    total: "Total:"
+    confirm: "Confirmá tu pedido:"
+    resume: "Resumen de orden:"
+    shipping_cost_promotion: "Envío (promoción):"
+  payment:
+    choice: "Elegí tu método de pago"
+    stripe: "Pagá con Stripe"
+    mercadopago: "Pagá con Mercado Pago"
+    cash: "Pagá en efectivo"
+  success:
+    congratulations: "Felicidades!"
+    confirmed: "Tú orden ha sido confirmada"
+    preparing: "Estamos preparando tu pedido"
+    estimated: "Entrega estimada en 25-40 minutos"
